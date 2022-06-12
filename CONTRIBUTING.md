@@ -36,10 +36,10 @@ and sending a note to the working group to let people know the doc is there.
 When documenting a new design, we recommend a 2-step approach:
 
 1. Use the short-form
-[RFC template]()
+[RFC template](https://docs.google.com/document/d/1UcBeLfZ_JMGpVrPJmYtEIVH_9Y4U3AEKQdq_IKuOMrU)
 to outline your ideas and get early feedback.
 1. Once you have received sufficient feedback and consensus, you may use the longer-form
-[design doc template]()
+[design doc template](https://docs.google.com/document/d/1Mtoui_PP2a9N59NjYHnsvrdJ8t2iKFwIJAx1zRO_I1c)
 to specify and discuss your design in more details.
 
 To use either template, open the template and select "Use Template" in order to bootstrap your document.
