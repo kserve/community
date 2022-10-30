@@ -105,6 +105,8 @@ To submit a proposed change:
   without your code changes. For new features try to cover as many
   variants as reasonably possible.
 
+- For new features e2e tests should be added [here](https://github.com/kserve/kserve/tree/master/test/e2e)
+
 - Modify the documentation as necessary.
 
 - Verify the entire CI process (building and testing) works.
