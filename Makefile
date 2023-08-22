@@ -5,10 +5,19 @@ check-doc-links:
 	@python3 scripts/python/verify-doc-links.py && echo "$@: OK"
 
 .PHONY: list-contributors
-## Verify URL links in Markdown files
+## List top contributors
 list-contributors:
 	@python3 scripts/python/list-contributors.py
 
+.PHONY: list-pr-reviewers
+## List top PR reviewers
+list-pr-reviewers:
+	@python3 scripts/python/list-contributors.py -r reviewer commenter
+
+.PHONY: list-pr-authors
+## List top PR authors
+list-pr-authors:
+	@python3 scripts/python/list-contributors.py -r author
 
 .DEFAULT_GOAL := help
 .PHONY: help

@@ -17,20 +17,70 @@
 # This script is used to find PR reviewers on the kserve/kserve repo
 
 import json
+
+from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser as ArgParser
 from collections import defaultdict
 from datetime import date, timedelta
+from enum import Enum
 from os import environ as env
+from typing import Dict, List
 from urllib.request import Request, urlopen
 
 
-GITHUB_REPO = env.get("GITHUB_REPO", "kserve/kserve")
-GITHUB_API_TOKEN = env.get("GITHUB_API_TOKEN")
+class Role(str, Enum):
+    AUTHOR = "author"
+    REVIEWER = "reviewer"
+    COMMENTER = "commenter"
 
-repository = "kserve/kserve"
-bot = "kserve-oss-bot"
-dan = "yuzisun"
-six_months_ago = date.today() - timedelta(days=180)
 
+# exclude known frequent actors
+ignored_users = {"kserve-oss-bot", "dependabot", "yuzisun"}
+
+args = ArgParser(description="List top PR participants",
+                 formatter_class=ArgumentDefaultsHelpFormatter)
+args.add_argument('-r',
+                  metavar='ROLE',
+                  dest='roles', type=str, nargs='+',
+                  default=[r.value for r in Role],
+                  help="type of PR participation")
+args.add_argument('-n',
+                  dest='min_num_prs', type=int,
+                  default=5,
+                  help="minimum number of PRs participated")
+args.add_argument('-d',
+                  dest='days', type=int,
+                  default=180,
+                  help="number of days to look back")
+args.add_argument('-i',
+                  metavar='USER',
+                  dest='ignored_users', type=str, nargs='+',
+                  default=[u for u in ignored_users],
+                  help="users to be ignored")
+args.add_argument('-v',
+                  dest='debug', action="store_true",
+                  help="debug")
+args.add_argument('-f',
+                  dest='json_file', type=str,
+                  default="pulls.json",
+                  help="JSON file to write full query results, if debug")
+opts = args.parse_args()
+
+# initialize variables from CLI script arguments
+roles = sorted(set([Role(r) for r in opts.roles]))
+since_date = date.today() - timedelta(days=opts.days)
+min_prs_participated = opts.min_num_prs
+debug = opts.debug
+json_file = opts.json_file
+ignored_users = set(opts.ignored_users)
+
+# non-parameterized variables
+repo = "kserve/kserve"
+
+# the GitHub API requires an API token:
+# https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#authenticating-with-a-personal-access-token
+GITHUB_API_TOKEN = env["GITHUB_API_TOKEN"]  # Did you export your GitHub API token?
+
+# query template needs to be completed with repo, date, results per page, etc
 query_template = """
 {
   query: search(
@@ -47,6 +97,9 @@ query_template = """
     }
     nodes {
       ... on PullRequest {
+        number
+        title
+        createdAt
         author {
           login
         }
@@ -67,9 +120,6 @@ query_template = """
             # bodyText
           }
         }
-        number
-        title
-        createdAt
       }
     }
   }
@@ -77,38 +127,18 @@ query_template = """
 """
 
 
-def get_query_text(repository: str = repository,
-                   since_date: date = six_months_ago,
+def get_query_text(repository: str = repo,
+                   since: date = since_date,
                    num_results: int = 100,
                    cursor: str = None) -> str:
 
     query_txt = query_template % (
         repository,
-        since_date.strftime('%Y-%m-%d'),
+        since.strftime('%Y-%m-%d'),
         num_results,
         f'after: "{cursor}"' if cursor else ""
     )
     return query_txt
-
-
-def force_ipv4():
-    # Monkey-patch socket.getaddrinfo to force IPv4 conections, since some older
-    # routers and some internet providers don't support IPv6, in which case Python
-    # will first try an IPv6 connection which will hang until timeout and only
-    # then attempt a successful IPv4 connection
-    import socket
-
-    # get a reference to the original getaddrinfo function
-    getaddrinfo_original = socket.getaddrinfo
-
-    # create a patched getaddrinfo function which uses the original function
-    # but filters out IPv6 (socket.AF_INET6) entries of host and port address infos
-    def getaddrinfo_patched(*args, **kwargs):
-        res = getaddrinfo_original(*args, **kwargs)
-        return [r for r in res if r[0] == socket.AF_INET]
-
-    # replace the original socket.getaddrinfo function with our patched version
-    socket.getaddrinfo = getaddrinfo_patched
 
 
 def run_query(query: str) -> str:
@@ -136,14 +166,15 @@ def run_query(query: str) -> str:
     return resp_content
 
 
-def get_contributors() -> dict:
+def get_paged_query_results() -> []:
     has_next_page = True
     cursor = None
     nodes = []
+
     while has_next_page:
         query_text = get_query_text(cursor=cursor)
-        query_json={'query': query_text}
-        query_json_str=json.dumps(query_json)
+        query_json = {'query': query_text}
+        query_json_str = json.dumps(query_json)
         result_str = run_query(query_json_str)
         result_json = json.loads(result_str)
         page_info = result_json["data"]["query"]["pageInfo"]
@@ -151,54 +182,86 @@ def get_contributors() -> dict:
         cursor = page_info["endCursor"]
         nodes.extend(result_json["data"]["query"]["nodes"])
 
-        # print(result_json["data"]["query"]["nodes"])
+    if debug:
+        with open(json_file, 'w', encoding='utf-8') as f:
+            json.dump(nodes, f, ensure_ascii=False, indent=4)
 
-    contributors = defaultdict(lambda: defaultdict(list))
+    return nodes
+
+
+def get_contributors() -> Dict[str, List]:
+    nodes = get_paged_query_results()
+    participants_to_pr_by_role = defaultdict(lambda: defaultdict(list))
+    contributors_to_pr = dict()
 
     for node in nodes:
         pr_num = node["number"]
         author = node["author"]["login"]
-        reviewers = {r["author"]["login"] for r in node["reviews"]["nodes"]} - {author, bot}
-        commenters = {r["author"]["login"] for r in node["comments"]["nodes"]} - {author, bot}
+        reviewers = {r["author"]["login"] for r in node["reviews"]["nodes"]} - {author}
+        commenters = {r["author"]["login"] for r in node["comments"]["nodes"]} - {author}
 
-        contributors[author]["authored_prs"].append(pr_num)
+        participants_to_pr_by_role[author][Role.AUTHOR].append(pr_num)
 
         for login in reviewers:
-            contributors[login]["reviewed_prs"].append(pr_num)
+            participants_to_pr_by_role[login][Role.REVIEWER].append(pr_num)
 
         for login in commenters:
-            contributors[login]["commented_prs"].append(pr_num)
+            participants_to_pr_by_role[login][Role.COMMENTER].append(pr_num)
 
-    for login in contributors:
-        authored_prs = contributors[login]["authored_prs"]
-        reviewed_prs = contributors[login]["reviewed_prs"]
-        commented_prs = contributors[login]["commented_prs"]
-        participated_prs = list(set(authored_prs + reviewed_prs + commented_prs))
+    if debug:
+        print("=================== all PR participants ===================")
+        print(json.dumps(participants_to_pr_by_role, indent=2, sort_keys=True)
+              .replace("\n      ", "")
+              .replace("\n    ]", "]"))
+        print("===========================================================\n\n")
 
-        contributors[login]["authored_prs"] = sorted(authored_prs, reverse=True)
-        contributors[login]["reviewed_prs"] = sorted(reviewed_prs, reverse=True)
-        contributors[login]["commented_prs"] = sorted(commented_prs, reverse=True)
-        contributors[login]["participated_prs"] = sorted(participated_prs, reverse=True)
+    for login in participants_to_pr_by_role:
+        prs_participated = set()
 
-        contributors[login]["total_prs"] = len(participated_prs)
+        for role in roles:
+            prs_participated.update(participants_to_pr_by_role[login][role])
 
-    # print(json.dumps(contributors, indent=2, sort_keys=True))
+        if login not in ignored_users:
+            contributors_to_pr[login] = sorted(prs_participated, reverse=True)
 
-    return contributors
+    return contributors_to_pr
+
+
+def force_ipv4():
+    # Monkey-patch socket.getaddrinfo to force IPv4 conections, since some older
+    # routers and some internet providers don't support IPv6, in which case Python
+    # will first try an IPv6 connection which will hang until timeout and only
+    # then attempt a successful IPv4 connection
+    import socket
+
+    # get a reference to the original getaddrinfo function
+    getaddrinfo_original = socket.getaddrinfo
+
+    # create a patched getaddrinfo function which uses the original function
+    # but filters out IPv6 (socket.AF_INET6) entries of host and port address infos
+    def getaddrinfo_patched(*args, **kwargs):
+        res = getaddrinfo_original(*args, **kwargs)
+        return [r for r in res if r[0] == socket.AF_INET]
+
+    # replace the original socket.getaddrinfo function with our patched version
+    socket.getaddrinfo = getaddrinfo_patched
 
 
 if __name__ == '__main__':
     force_ipv4()
     contributors = get_contributors()
 
-    print(f"KServe contributors by number of PRs authored or reviewed since %s:\n" % six_months_ago.strftime('%Y-%m-%d'))
+    print(f"Contributors to '{repo}'"
+          f" (PR {', '.join([r.value+'s' for r in roles])})"
+          f" by number of PRs (>{min_prs_participated})"
+          f" since {since_date.strftime('%Y-%m-%d')}:\n")
 
-    for login, pr_lists in sorted(contributors.items(),
-                                  key=lambda item: item[1]["total_prs"],
-                                  reverse=True):
+    for login, prs in sorted(contributors.items(),
+                             key=lambda item: len(item[1]),
+                             reverse=True):
+        num_prs = len(prs)
+        prs_str = str(prs)
+        prs_txt = (prs_str[:60] + ' ... ]') if len(prs_str) > 60 else prs_str
 
-        num_prs = len(pr_lists["participated_prs"])
-        prs_str = str(pr_lists["participated_prs"])
-        prs_str = (prs_str[:60] + ' ... ]') if len(prs_str) > 60 else prs_str
-
-        print("%3d  %-18s %s" % (num_prs, login, prs_str))
+        if num_prs >= min_prs_participated:
+            print("%3d  %-18s %s" % (num_prs, login, prs_txt))
