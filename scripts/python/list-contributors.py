@@ -44,6 +44,7 @@ args.add_argument('-r',
                   default=[r.value for r in Role],
                   help="type of PR participation")
 args.add_argument('-n',
+                  metavar='THRESHOLD',
                   dest='min_num_prs', type=int,
                   default=5,
                   help="minimum number of PRs participated")
@@ -56,7 +57,11 @@ args.add_argument('-i',
                   dest='ignored_users', type=str, nargs='+',
                   default=[u for u in ignored_users],
                   help="users to be ignored")
-args.add_argument('-v',
+args.add_argument('--repo',
+                  dest='repo', type=str,
+                  default="kserve/kserve",
+                  help="GitHub repository")
+args.add_argument('-v', '--debug',
                   dest='debug', action="store_true",
                   help="debug")
 args.add_argument('-f',
@@ -72,9 +77,7 @@ min_prs_participated = opts.min_num_prs
 debug = opts.debug
 json_file = opts.json_file
 ignored_users = set(opts.ignored_users)
-
-# non-parameterized variables
-repo = "kserve/kserve"
+repo = opts.repo
 
 # the GitHub API requires an API token:
 # https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#authenticating-with-a-personal-access-token
