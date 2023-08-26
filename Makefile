@@ -12,12 +12,12 @@ list-contributors:
 .PHONY: list-pr-reviewers
 ## List top PR reviewers
 list-pr-reviewers:
-	@python3 scripts/python/list-contributors.py -r reviewer commenter
+	@python3 scripts/python/list-contributors.py -r reviewer commenter -n 3
 
 .PHONY: list-pr-authors
 ## List top PR authors
 list-pr-authors:
-	@python3 scripts/python/list-contributors.py -r author
+	@python3 scripts/python/list-contributors.py -r author -n 3
 
 .DEFAULT_GOAL := help
 .PHONY: help
