@@ -119,7 +119,7 @@ When ready, if you have not already done so, [sign off the commits](https://docs
 the PR.
 
 See [Writing Good Pull Requests](https://github.com/istio/istio/wiki/Writing-Good-Pull-Requests) for guidance on creating
-pull requests, and [Reviewing Pull Requests]() for the PR review
+pull requests, and [Reviewing Pull Requests](https://github.com/istio/istio/wiki/Reviewing-Pull-Requests) for the PR review
 we use.
 
 ## Issues
