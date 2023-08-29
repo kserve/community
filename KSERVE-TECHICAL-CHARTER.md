@@ -16,10 +16,11 @@ a. The Technical Steering Committee (the “TSC”) will be responsible for all 
 
 b. The TSC voting members are initially the Project’s Committers. At the inception of the project, the Committers of the Project will be set forth within the “CONTRIBUTING” file within the Project’s code repository. The TSC may choose an alternative approach for determining the voting members of the TSC, and any such alternative approach will be documented in the CONTRIBUTING file. Any meetings of the Technical Steering Committee are intended to be open to the public, and can be conducted electronically, via teleconference, or in person. 
 
-c. TSC projects generally will involve Contributors and Committers. The TSC may adopt or modify roles so long as the roles are documented in the CONTRIBUTING file. Unless otherwise documented: 
-       i. Contributors include anyone in the technical community that contributes code, documentation, or other technical artifacts to the Project; 
-      ii. Committers are Contributors who have earned the ability to modify (“commit”) source code, documentation or other technical artifacts in a project’s repository; and
-      iii. A Contributor may become a Committer by a majority approval of the existing Committers. A Committer may be removed by a majority approval of the other existing Committers. 
+c. TSC projects generally will involve Contributors and Committers. The TSC may adopt or modify roles so long as the roles are documented in the CONTRIBUTING file. Unless otherwise documented:
+
+  i. _Contributors_ include anyone in the technical community that contributes code, documentation, or other technical artifacts to the Project; 
+  ii. _Committers_ are Contributors who have earned the ability to modify (“commit”) source code, documentation or other technical artifacts in a project’s repository; and
+  iii. A Contributor may **become a Committer** by a majority approval of the existing Committers. A Committer may be removed by a majority approval of the other existing Committers. 
 
 d. Participation in the Project through becoming a Contributor and Committer is open to anyone so long as they abide by the terms of this Charter. 
 

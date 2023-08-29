@@ -145,3 +145,49 @@ to their customers), *end user* (who use and consume KServe) and *integrations* 
 that work with KServe).
 
 Please add your company logo, preferably in SVG format, to [here](https://github.com/kserve/website/tree/main/docs/images).
+
+## Becoming a committer
+
+A committer is a contributor who has gained the privilege to commit code to the project. 
+But being a committer also means being committed to the project and the community as a whole.
+
+**Responsibilities of a committer:**
+
+- Triage and respond to issues
+- Be an expert in certain areas, but familiar with the majority of the code base
+- Review pull requests
+- Answer questions on Slack
+- Mentor new project contributors
+
+Contributors who have demonstrated their proficiency to make substantial code contributions and shown their commitment to the projects success over a prolonged period of time are candidates to become committers.
+
+### How new committers are chosen
+
+The [KServe Technical Charter](./KSERVE-TECHICAL-CHARTER.md#2-technical-steering-committee) outlines the process to become a KServe committer:
+
+> - **iii**. A _Contributor_ may become a _Committer_ by a majority approval of the existing Committers. A Committer may be removed by a majority approval of the other existing Committers. 
+
+For this purpose, the technical steering committee (TSC) shall periodically review the activity of project contributors and propose qualifying contributors to be promoted to become committers.
+
+To help find candidates for promotion, existing committers can use the [`list-contributors.py`](scripts/python/list-contributors.py) script to review recent contributor activity:
+
+```shell
+$ make list-pr-authors
+
+Contributors to 'kserve/kserve' (PR authors) by number of PRs (>3) since 2023-03-02:
+
+ 39  supercoder      [5083, 5077, 5040, 5038, 5035, 5031, 5024, 5016, 5006, 5004, ... ]
+ 20  kservehacker    [5089, 5061, 5054, 5029, 5020, 5002, 5001, 4998, 4956, 4952, ... ]
+  6  code4fun        [5069, 5048, 5027, 5026, 5008, 4867]
+
+
+$ make list-pr-reviewers
+
+Contributors to 'kserve/kserve' (PR commenters, reviewers) by number of PRs (>3) since 2023-03-02:
+
+ 13  reviewchamp     [5089, 5075, 5072, 5047, 5042, 5040, 5038, 5031, 4993, 4969, ... ]
+  9  nitpickr        [5079, 5054, 5049, 5040, 4954, 4877, 4782, 4762, 4739]
+  4  casualcodr      [5062, 5039, 5025, 4867]
+```
+
+This script should only be used to identify suitable candidates. The actual candidate selection should take more factors into consideration than number of commits or PRs reviewed.
