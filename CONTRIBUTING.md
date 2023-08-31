@@ -159,8 +159,9 @@ Please add your company logo, preferably in SVG format, to [here](https://github
 ## Becoming a committer
 
 A committer is a contributor who has gained the privilege to commit code to the
-project. It also means being committed to the project and the
-community as a whole.
+project. It also means being committed to the project and the community as a whole.
+Contributors who aspire to become committers should already be doing most of the
+activities that are expected to be done by the project's committers.
 
 **Responsibilities of a committer:**
 
