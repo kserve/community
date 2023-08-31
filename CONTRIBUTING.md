@@ -39,7 +39,7 @@ When documenting a new design, we recommend a 2-step approach:
 
 1. Use the short-form [RFC template](https://docs.google.com/document/d/1UcBeLfZ_JMGpVrPJmYtEIVH_9Y4U3AEKQdq_IKuOMrU) to outline your ideas and get early feedback.
 
-2. Once you have received sufficient feedback and consensus, you may use the longer-form [design doc template](https://docs.google.com/document/d/1Mtoui_PP2a9N59NjYHnsvrdJ8t2iKFwIJAx1zRO_I1c) to specify and discuss your design in more details.
+2. Once you have received sufficient feedback and consensus, you may use the longer-form [design doc template](https://docs.google.com/document/d/1Mtoui_PP2a9N59NjYHnsvrdJ8t2iKFwIJAx1zRO_I1c) to specify and discuss your design in more detail.
 
 To use either template, open the template and select "Use Template" in order to
 bootstrap your document.
@@ -49,7 +49,7 @@ bootstrap your document.
 In order to contribute a feature to KServe you'll need to go through the
 following steps:
 
-- Discuss your idea with the working group on Slack or discussion thread.
+- Discuss your idea with the working group on Slack in a discussion thread.
 
 - Once there is general agreement that the feature is useful, create a GitHub
   issue to track the discussion. The issue should include information about the
@@ -148,10 +148,10 @@ When reporting a bug please include the following key pieces of information:
 
 ## Promote your company on kserve.io
 
-If your company supports KServe or uses in on production, you can list it on our
+If your company supports KServe or uses it in production, you can list it on our
 [adopters page](https://kserve.github.io/website/master/community/adopters).
 We have categories for *providers* (who offer hosted or managed KServe services
-to their customers), *end user* (who use and consume KServe) and *integrations*
+to their customers), *end users* (who use and consume KServe) and *integrations*
 (commercial or open source products that work with KServe).
 
 Please add your company logo, preferably in SVG format, to [here](https://github.com/kserve/website/tree/main/docs/images).
@@ -159,13 +159,13 @@ Please add your company logo, preferably in SVG format, to [here](https://github
 ## Becoming a committer
 
 A committer is a contributor who has gained the privilege to commit code to the
-project. But being a committer also means being committed to the project and the
+project. It also means being committed to the project and the
 community as a whole.
 
 **Responsibilities of a committer:**
 
 - Triage and respond to issues
-- Be an expert in certain areas, but familiar with the majority of the code base
+- Possess expertise in certain areas and familiarity with the majority of the code base
 - Review pull requests
 - Answer questions on Slack
 - Mentor new project contributors
@@ -214,10 +214,10 @@ commits or PRs reviewed.
 
 **Areas of expertise:**
 
-Another criteria in selecting new committers is the project area that requires
+Another criterion to use when selecting new committers is the project area that requires
 help with reviewing PRs and mentoring new contributors. Contributors that have
-a lot of expertise in a particular area who have helped review PRs in their area
-of expertise make good candidates to be promoted as committers. The various
+a lot of expertise in a particular area who have helped review PRs in that area
+make good candidates to be promoted as committers. The various
 projects under the KServe umbrella may have a different set of committers and
 focus areas.
 
