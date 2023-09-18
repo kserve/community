@@ -15,7 +15,7 @@ same process and are given the same level of review.
 - [Pull requests](#pull-requests)
 - [Issues](#issues)
 - [Promote your company on kserve.io](#promote-your-company-on-kserveio)
-- [Tell the world you're using KServe](#tell-the-world-youre-using-kserve)
+- [Becoming a committer](#becoming-a-committer)
 
 
 ## Working groups
