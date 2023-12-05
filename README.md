@@ -22,7 +22,7 @@ by teams from Google, IBM, Bloomberg and NVIDIA.
 
 ## Community meeting
 
-We have public biweekly community meetings at 9am US/Pacific. [Map that to your local time](https://www.google.com/search?q=9000+am+in+pst&hl=en).
+We have public biweekly community meetings at Wed 9am US/Pacific. [Map that to your local time](https://www.google.com/search?q=9000+am+in+pst&hl=en).
 
 You can also find them on [the community calendar](https://wiki.lfaidata.foundation/display/kserve/calendars), along with other major community events.
 
