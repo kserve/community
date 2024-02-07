@@ -52,4 +52,10 @@ insightful docs. Or maybe a cool blog post?
 
 ## Questions and issues
 
-If you've got questions or issues with using KServe, please use [KServe Slack](https://kubeflow.slack.com/archives/CH6E58LNP) or [KServe discussions](https://github.com/kserve/kserve/discussions) to ask questions, use [KServe issues](https://github.com/kserve/kserve/issues) to report bugs and request features where there's always someone ready to lend a hand.
+For questions or issues, you can use:
+1. `#kserve` channel in CNCF Slack, please follow the steps below:
+   1. Create your Slack account [here](https://slack.cncf.io/)
+   1. Search for `#kserve` channel or join directly via [this link](https://cloud-native.slack.com/archives/C06AH2C3K8B) 
+1. [KServe discussions](https://github.com/kserve/kserve/discussions)
+
+For bug reports and features requests, please use [KServe issues](https://github.com/kserve/kserve/issues).
