@@ -7,17 +7,17 @@ check-doc-links:
 .PHONY: list-contributors
 ## List top contributors
 list-contributors:
-	@python3 scripts/python/list-contributors.py
+	@python3 scripts/python/list-contributors.py -n 10
 
 .PHONY: list-pr-reviewers
 ## List top PR reviewers
 list-pr-reviewers:
-	@python3 scripts/python/list-contributors.py -r reviewer commenter -n 3
+	@python3 scripts/python/list-contributors.py -r reviewer commenter -n 5
 
 .PHONY: list-pr-authors
 ## List top PR authors
 list-pr-authors:
-	@python3 scripts/python/list-contributors.py -r author -n 3
+	@python3 scripts/python/list-contributors.py -r author -n 5
 
 .DEFAULT_GOAL := help
 .PHONY: help
