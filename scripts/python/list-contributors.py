@@ -34,7 +34,7 @@ class Role(str, Enum):
 
 
 # exclude known frequent actors
-ignored_users = {"kserve-oss-bot", "dependabot", "yuzisun"}
+ignored_users = {"github-advanced-security", "kserve-oss-bot", "dependabot", "oss-prow-bot"}
 
 args = ArgParser(description="List top PR participants",
                  formatter_class=ArgumentDefaultsHelpFormatter)
@@ -84,6 +84,7 @@ repo = opts.repo
 GITHUB_API_TOKEN = env["GITHUB_API_TOKEN"]  # Did you export your GitHub API token?
 
 # query template needs to be completed with repo, date, results per page, etc
+# don't add `is:merged` in the `query` field, as we want reviewers for open, closed/dismissed PRs as well
 query_template = """
 {
   query: search(
@@ -103,6 +104,7 @@ query_template = """
         number
         title
         createdAt
+        state
         author {
           login
         }
@@ -203,7 +205,8 @@ def get_contributors() -> Dict[str, List]:
         reviewers = {r["author"]["login"] for r in node["reviews"]["nodes"]} - {author}
         commenters = {r["author"]["login"] for r in node["comments"]["nodes"]} - {author}
 
-        participants_to_pr_by_role[author][Role.AUTHOR].append(pr_num)
+        if node["state"] == "MERGED":
+            participants_to_pr_by_role[author][Role.AUTHOR].append(pr_num)
 
         for login in reviewers:
             participants_to_pr_by_role[login][Role.REVIEWER].append(pr_num)
