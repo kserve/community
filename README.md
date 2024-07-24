@@ -22,11 +22,13 @@ by teams from Google, IBM, Bloomberg and NVIDIA.
 
 ## Community meeting
 
-We have public biweekly community meetings at Wed 9am US/Pacific. [Map that to your local time](https://www.google.com/search?q=9000+am+in+pst&hl=en).
+We have public biweekly community meetings on Wed 9AM US/Pacific. Please [map that to your local time](https://www.google.com/search?q=0900+am+in+pst&hl=en).
 
-You can also find them on [the community calendar](https://wiki.lfaidata.foundation/display/kserve/calendars), along with other major community events.
+You can also find these meetings on [the community calendar](https://zoom-lfx.platform.linuxfoundation.org/meetings/kserve?view=month), along with other major community events.
 
-Meeting agendas and notes can be accessed in the [working doc](https://docs.google.com/document/d/1KZUURwr9MnHXqHA08TFbfVbM8EAJSJjmaMhnvstvi-k).
+Meeting agendas and notes can be accessed in the [working group document](https://docs.google.com/document/d/1KZUURwr9MnHXqHA08TFbfVbM8EAJSJjmaMhnvstvi-k).
+
+You can access the meeting recordings on [the community calendar](https://zoom-lfx.platform.linuxfoundation.org/meetings/kserve?view=month) by clicking on the respective date's event details.
 
 ## How can I help ?
 
