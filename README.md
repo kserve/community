@@ -22,7 +22,7 @@ by teams from Google, IBM, Bloomberg and NVIDIA.
 
 ## Community meeting
 
-We have public biweekly community meetings on Thu 9AM US/Pacific. Please [map that to your local time](https://www.google.com/search?q=0900+am+in+pst&hl=en).
+We have public biweekly community meetings on Thursdays at 9AM PST. Please [map that to your local time](https://www.google.com/search?q=0900+am+in+pst&hl=en).
 
 You can also find these meetings on [the community calendar](https://zoom-lfx.platform.linuxfoundation.org/meetings/kserve?view=month), along with other major community events.
 
