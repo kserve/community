@@ -25,8 +25,7 @@ KServe working group.
 
 ## Code of conduct
 
-All members of the KServe community must abide by the
-[Code of Conduct](https://github.com/lfai/foundation/blob/main/codeofconduct.md).
+All members of the KServe community must abide by the [CNCF Code of Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md).
 
 ## Design documents
 
