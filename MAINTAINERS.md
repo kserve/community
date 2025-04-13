@@ -9,7 +9,7 @@
 | Lize Cai               | [lizzzcai](https://github.com/lizzzcai)               | Approver - KServe    | SAP         |
 | Rachit Chauhan         | [rachitchauhan43](https://github.com/rachitchauhan43) | Approver - KServe    | Intuit      |
 | Sivanantham Chinnaiyan | [sivanantha321](https://github.com/sivanantha321)     | Approver - KServe    | Ideas2IT    |
-| Andrews Arokiam        | [andyi2it](https://github.com/andyi2it)               | Reviewer - KServe    | Bloomberg   |
+| Andrews Arokiam        | [andyi2it](https://github.com/andyi2it)               | Reviewer - KServe    | Ideas2IT   |
 | Curtis Maddalozzo      | [cmaddalozzo](https://github.com/cmaddalozzo)         | Reviewer - KServe    | Bloomberg   |
 | Datta Nimmaturi        | [Datta0](https://github.com/Datta0)                   | Reviewer - KServe    | Nutanix     |
 | Gavrish Prabhu         | [gavrissh](https://github.com/gavrissh)               | Reviewer - KServe    | Nutanix     |
