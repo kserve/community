@@ -1,5 +1,7 @@
 # KServe Maintainers
 
+Please see [membership.md](membership.md) that defines the various responsibilities of contributor roles in KServe community.
+
 ## Maintainers
 
 | Maintainer             | GitHub ID                                             | Project Roles        | Affiliation |
