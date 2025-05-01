@@ -11,6 +11,7 @@ Responsibilities for roles are scoped to these subprojects.
 | approver | approve accepting contributions               | sponsored by a lead. highly experienced and active reviewer + contributor to a subproject | OWNERS file approver entry |
 | lead     | set direction and priorities for a subproject | demonstrated responsibility and excellent technical judgement for the subproject          | OWNERS file owner entry    |
 
+Please see [MAINTAINERS.md](MAINTAINERS.md) for a list of existing members and their roles.
 
 ## New contributors
 
