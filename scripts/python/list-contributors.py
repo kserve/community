@@ -201,10 +201,12 @@ def get_contributors() -> Dict[str, List]:
 
     for node in nodes:
         pr_num = node["number"]
-        author = node["author"]["login"]
-        reviewers = {r["author"]["login"] for r in node["reviews"]["nodes"]} - {author}
-        commenters = {r["author"]["login"] for r in node["comments"]["nodes"]} - {author}
-
+        try:
+            author = node["author"]["login"]
+            reviewers = {r["author"]["login"] for r in node["reviews"]["nodes"]} - {author}
+            commenters = {r["author"]["login"] for r in node["comments"]["nodes"]} - {author}
+        except:
+            continue
         if node["state"] == "MERGED":
             participants_to_pr_by_role[author][Role.AUTHOR].append(pr_num)
 
