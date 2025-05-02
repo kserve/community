@@ -123,7 +123,7 @@ an `OWNERS` file.
 - Sponsored by a subproject lead
   - With no objections from other leads
   - Done through PR to update the OWNERS file
-- May either self-nominate, be nominated by an approver in the subproject
+- May either self-nominate or nominated by an approver in the subproject
 
 ##### Responsibilities and privileges
 
