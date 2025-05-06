@@ -7,21 +7,14 @@ repositories go through.  All changes, regardless of whether they are from
 newcomers to the community or from the core team follow the
 same process and are given the same level of review.
 
-- [Working groups](#working-groups)
 - [Code of conduct](#code-of-conduct)
 - [Design documents](#design-documents)
 - [Contributing a feature](#contributing-a-feature)
 - [Setting up to contribute to KServe](#setting-up-to-contribute-to-kserve)
 - [Pull requests](#pull-requests)
 - [Issues](#issues)
-- [Promote your company on kserve.io](#promote-your-company-on-kserveio)
-- [Becoming a committer](#becoming-a-committer)
-
-
-## Working groups
-
-Any feature contribution to KServe should be started by first engaging with the
-KServe working group.
+- [Add your organization to adopters](#add-your-organization-to-adopters)
+- [Project membership](#project-membership)
 
 ## Code of conduct
 
@@ -145,48 +138,25 @@ When reporting a bug please include the following key pieces of information:
   Submitting a 5 line script will get a much faster response from the team
   than one that's hundreds of lines long.
 
-## Promote your company on kserve.io
+## Add your organization to adopters
 
-If your company supports KServe or uses it in production, you can list it on our
+If your organization uses KServe, you can list it on our
 [adopters page](https://kserve.github.io/website/master/community/adopters).
 We have categories for *providers* (who offer hosted or managed KServe services
 to their customers), *end users* (who use and consume KServe) and *integrations*
 (commercial or open source products that work with KServe).
 
-Please add your company logo, preferably in SVG format, to [here](https://github.com/kserve/website/tree/main/docs/images).
+Please add your organization's logo, preferably in SVG format [here](https://github.com/kserve/website/tree/main/docs/images).
 
-## Becoming a committer
+## Project membership
 
-A committer is a contributor who has gained the privilege to commit code to the
-project. It also means being committed to the project and the community as a whole.
-Contributors who aspire to become committers should already be doing most of the
-activities that are expected to be done by the project's committers.
+Please see [this page](membership.md) to learn about different roles in the KServe community.
 
-**Responsibilities of a committer:**
+The [Technical Steering Committee (TSC)](TECHNICAL-STEERING-COMMITTEE.md) members periodically
+review the activity of project contributors and propose membership status changes.
 
-- Triage and respond to issues
-- Possess expertise in certain areas and familiarity with the majority of the code base
-- Review pull requests
-- Answer questions on Slack
-- Mentor new project contributors
-
-Contributors who have demonstrated their proficiency to make substantial code
-contributions and shown their commitment to the projects success over a
-prolonged period of time are candidates to become committers.
-
-**How new committers are chosen:**
-
-The [KServe Technical Charter](./KSERVE-TECHICAL-CHARTER.md#2-technical-steering-committee)
-outlines the process to become a KServe committer:
-
-> - **iii**. A _Contributor_ may become a _Committer_ by a majority approval of the existing Committers. A Committer may be removed by a majority approval of the other existing Committers. 
-
-For this purpose, the technical steering committee (TSC) shall periodically
-review the activity of project contributors and propose qualifying contributors
-to be promoted to become committers.
-
-To help find candidates for promotion, existing committers can use the
-[`list-contributors.py`](scripts/python/list-contributors.py) script to review
+To help find candidates for promotion, the
+[`list-contributors.py`](scripts/python/list-contributors.py) script is available to review
 recent contributor activity:
 
 ```shell
@@ -211,26 +181,3 @@ Contributors to 'kserve/kserve' (PR commenters, reviewers) by number of PRs (>3)
 This script should only be used to identify suitable candidates. The actual
 candidate selection should take more factors into consideration than number of
 commits or PRs reviewed.
-
-**Areas of expertise:**
-
-Another criterion to use when selecting new committers is the project area that requires
-help with reviewing PRs and mentoring new contributors. Contributors that have
-a lot of expertise in a particular area who have helped review PRs in that area
-make good candidates to be promoted as committers. The various
-projects under the KServe umbrella may have a different set of committers and
-focus areas.
-
-Some of those areas of expertise include:
-
-- **KServe**:
-  - Python SDK
-  - Open inference protocol, data plane
-  - Release & testing infra
-  - Webapp
-  - Website
-- **ModelMesh**:
-  - Controller
-  - Runtime adapter
-  - Storage adapter
-  - Rest proxy
