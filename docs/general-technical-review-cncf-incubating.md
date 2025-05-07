@@ -3,7 +3,7 @@
 - **Project:** KServe
 - **Project Version:** v0.15.0
 - **Website:** https://kserve.github.io/website/
-- **Date Updated:** 2025-05-05
+- **Date Updated:** 2025-05-07
 - **Template Version:** v1.0
 - **Description:** Highly scalable and standards based Model Inference Platform on Kubernetes
 - **Reviewers:** Dan Sun, Yuan Tang, Sivanantham Chinnaiyan, Johnu George
