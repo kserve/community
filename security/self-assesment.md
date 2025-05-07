@@ -29,13 +29,11 @@ This document is a self-assessment of the security of the KServe project.
 
 ## Metadata
 
-|    Assessment Stage                          |                                                                                Incomplete                                                                         |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Software                   | https://github.com/kserve/kserve                                             |
-| Security Provider?         | No. KServe is not a security provider; its primary function is to support scalable serving of machine learning and large language models (LLMs) on Kubernetes. |
-| Languages                  | Python, Go |
-
-
+| Assessment Stage   | Incomplete |
+|--------------------|---------------------------------------------------|
+| Software           | https://github.com/kserve/kserve |
+| Security Provider? | No. KServe is not a security provider; its primary function is to support scalable serving of machine learning and large language models (LLMs) on Kubernetes. |
+| Languages          | Python, Go           |
 
 ### Security links
 
@@ -62,27 +60,29 @@ This document is a self-assessment of the security of the KServe project.
 
 ## Overview
 
-KServe is a highly scalable and standards-based Model Inference Platform for serving predictive and generative AI models on Kubernetes, built for highly scalable use cases. It provides serverless model inference, autoscaling, advanced deployments, and integrates with a wide range of ML frameworks. It is designed to simplify the deployment and management of machine learning models in production environments, enabling organizations to leverage the power of Kubernetes for their AI workloads.
+KServe is a highly scalable and standards-based Model Inference Platform for serving predictive and generative AI models on Kubernetes, built for highly scalable use cases. It provides serverless model inference, autoscaling, advanced deployments, and integrates with a wide range of Machine Learning frameworks. It is designed to simplify the deployment and management of Machine Learning models in production environments, enabling organizations to leverage the power of Kubernetes for their AI workloads.
 
 It supports a wide range of popular frameworks such as TensorFlow, PyTorch, XGBoost, scikit-learn, and Hugging Face Transformers/LLMs, and adopts standardized data plane protocols to ensure consistency and interoperability. 
 
 KServe abstracts the operational complexity of model deployment by handling autoscaling, networking, health checks, and server configurations. It enables advanced serving features like GPU autoscaling, scale-to-zero, and canary rollouts. Moreover, KServe provides a complete and extensible solution for production ML serving, including support for prediction, pre-processing, post-processing, and model explainability, thereby offering a high-level, pluggable interface for scalable and reliable ML inference workflows.
 
+KServe also introduces Inference Graphs, a powerful feature that enables users to define multi-step inference pipelines. With inference graphs, users can chain together multiple models and transformation components using a simple and declarative graph-based specification. This is particularly useful for complex AI workflows such as ensemble models, sequential processing.
+
 ### Background
 
-In cloud-native environments, deploying machine learning (ML) models at scale poses many of the same challenges traditionally seen with serverless applications—such as managing scaling, updates, and event-driven workflows across diverse workloads. While Kubernetes provides a robust foundation for container orchestration, it was not originally designed with native support for ML-specific workloads. This gap led to fragmented solutions that required developers and ML engineers to manually handle autoscaling, networking, monitoring, and rollout strategies, often resulting in operational complexity and inefficiencies.
+In cloud-native environments, deploying Machine Learning (ML) models at scale poses many of the same challenges traditionally seen with Serverless applications—such as managing scaling, updates, and event-driven workflows across diverse workloads. While Kubernetes provides a robust foundation for container orchestration, it was not originally designed with native support for ML-specific workloads. This gap led to fragmented solutions that required developers and ML engineers to manually handle autoscaling, networking, monitoring, and rollout strategies, often resulting in operational complexity and inefficiencies.
 
-KServe addresses these challenges by building on top of Kubernetes and leveraging Knative—a framework specifically created to bring serverless capabilities to Kubernetes. By introducing a Kubernetes Custom Resource Definition (CRD) for InferenceService, KServe provides a standardized and auditable interface for deploying and managing ML models. This abstraction allows users to focus on their models rather than the underlying infrastructure, enabling them to deploy, scale, and manage their models with ease.
+KServe addresses these challenges by building on top of Kubernetes and leveraging Knative, a framework specifically created to bring serverless capabilities to Kubernetes. By introducing a Kubernetes Custom Resource Definition (CRD) for InferenceService, KServe provides a standardized and auditable interface for deploying and managing ML models. This abstraction allows users to focus on their models rather than the underlying infrastructure, enabling them to deploy, scale, and manage their models with ease.
 
 KServe is designed to be extensible and framework-agnostic, supporting a wide range of ML frameworks and custom runtimes. It provides a pluggable architecture that allows users to integrate their own pre-processing, post-processing, and model management components. This flexibility enables organizations to tailor KServe to their specific needs while benefiting from the core features and capabilities it offers.
 
-By leveraging Kubernetes-native components like Knative and modern ingress solutions such as Istio or Envoy Gateway, KServe abstracts much of the operational complexity involved in model inference workflows, making it an effective solution for organizations looking to operationalize machine learning at scale.
+By leveraging Kubernetes-native components like Knative and modern ingress solutions like Kubernetes Gateway API using implementations such as Istio or Envoy Gateway, KServe abstracts much of the operational complexity involved in model inference workflows, making it an effective solution for organizations looking to operationalize machine learning at scale.
 
 ### Actors
 
 1. **KServe Control Plane**: 
 
-    - **KServe Controller**: Responsible for reconciling the InferenceService, InferenceGraph custom resources. It creates the Knative Service in serverless deployment for predictor, transformer, explainer to enable autoscaling based on incoming request workload including scaling down to zero when no traffic is received. When raw deployment mode is enabled, control plane creates Kubernetes deployment, service, ingress, HPA. It is also responsible for creating model agent container for request/response logging, batching and model pulling.
+    - **KServe Controller**: Responsible for reconciling the InferenceService, InferenceGraph and underlying kubernetes related resources (E.g. Deployment, Service). It creates the Knative Service in Serverless deployment for predictor, transformer, explainer to enable autoscaling based on incoming request workload including scaling down to zero when no traffic is received. When Raw Deployment mode (vanilla Kubernetes) is enabled, the control plane creates Kubernetes deployment, service, ingress, HPA and other resources to allow smooth communication between the internal components. It is also responsible for creating model agent containers for request/response logging, batching and model pulling.
     
     - **KServe Webhook**: Validates and mutates CRD resources to ensure they conform to KServe's standards and best practices. It also handles the creation of default configurations for various components. 
     
@@ -114,10 +114,10 @@ By leveraging Kubernetes-native components like Knative and modern ingress solut
 The control plane reconciles these resources, deploying model servers and configuring autoscaling, networking, and monitoring. The data plane receives inference requests, processes them, and returns predictions. Monitoring and logging components collect metrics and logs for observability and troubleshooting.
 
 - **Model Deployment**: Users define an InferenceService CRD, specifying the model, runtime, and configuration.
-- **Autoscaling**: KServe automatically scales the model server based on incoming traffic, including scaling down to zero when idle.
+- **Autoscaling**: KServe automatically scales the model server based on incoming traffic, including scaling down to zero when idle in Serverless Mode. In Raw Deployment mode (vanilla Kubernetes), KServe utilizes Kubernetes HPA to scale the deployment based on CPU/Memory usage or KEDA for advanced scaling options with custom metrics.
 - **Monitoring and Logging**: KServe integrates with monitoring and logging systems to provide observability into model performance and usage.
 - **Model Management**: KServe manages the lifecycle of models, including versioning, canary rollouts, and A/B testing.
-- **Security and Access Control**: KServe leverages Kubernetes RBAC and network policies to secure access to model endpoints and resources.
+- **Security and Access Control**: KServe leverages Kubernetes RBAC and network policies to secure access to model endpoints and resources. KServe also supports TLS encryption for secure communication between components using Istio's service mesh and external clients using Authorization policy.
 - **Custom Runtimes**: Users can define custom runtimes for specific ML frameworks or use cases, enabling flexibility and extensibility.
 - **Pre/Post Processing**: Users can define pre-processing and post-processing steps for their models, allowing for custom data transformations and handling.
 - **Ensembling**: Users can create complex inference workflows by chaining multiple models together using InferenceGraph CRD, enabling advanced use cases like ensembling and A/B testing.
@@ -125,7 +125,7 @@ The control plane reconciles these resources, deploying model servers and config
 - **Batching**: KServe supports request batching to optimize resource utilization and improve throughput for inference requests.
 - **Multi-Model Serving**: KServe can serve multiple models simultaneously, enabling high-density deployments and efficient resource utilization.
 - **Canary Rollouts**: KServe supports canary rollouts for safe and controlled deployment of new model versions, allowing users to test changes with a subset of traffic before full rollout.
-- **Scale-to-Zero**: KServe can scale down to zero when no traffic is received, reducing resource consumption and costs.
+- **Scale-to-Zero**: In Serverless mode, KServe can scale down to zero using Knative when no traffic is received, reducing resource consumption and costs.
 - **Model Caching**: KServe supports model caching to optimize resource utilization and performance, reducing the overhead of launching new instances during auto-scaling.
 - **Payload Logging**: KServe supports request/response logging for monitoring and debugging purposes, allowing users to track the performance and behavior of their models.
 
@@ -134,10 +134,9 @@ The control plane reconciles these resources, deploying model servers and config
 
 - **Standard ML Platform on Kubernetes**: Provide a standard, cloud-agnostic platform for serving ML models on Kubernetes.
 - **Abstracting Complexity**: Simplify the deployment and management of ML models by abstracting operational complexity. Developers can focus on their models rather than the underlying infrastructure.
-- **Serverless Model Inference**: Enable serverless model inference with autoscaling, including scale-to-zero capabilities.
-- **Multi-Model Serving**: Support high-density, multi-tenant model serving with isolation between models and users.
+- **Serverless Model Inference**: Enable serverless model inference with autoscaling, including scale-to-zero capabilities using Knative.
 - **Advanced Deployment Patterns**: Support advanced deployment patterns such as canary rollouts, A/B testing, and multi-arm bandits.
-- **Model Management**: Provide a complete and extensible solution for model management, including versioning, canary rollouts, and A/B testing.
+- **Model Management**: Provide a complete and extensible solution for model management, including canary rollouts, and A/B testing.
 - **Monitoring and Observability**: Integrate with monitoring and logging systems for observability and incident response.
 - **AutoScaling**: Enable secure, scalable, and reliable model inference with support for autoscaling, canary rollouts, and advanced deployment patterns.
 - **Out of the Box ML framework Support**: Support a wide range of ML frameworks including TensorFlow, PyTorch, XGBoost, scikit-learn, and Hugging Face Transformers/LLMs to simplify model serving.
@@ -178,21 +177,20 @@ KServe does not currently claim compliance with specific security standards (e.g
 ## Secure Development Practices
 
 ### Development pipeline
- - Committers are required to agree to the Developer Certificate of Origin for each and every commit simply stating you have a legal right to make the contribuition.
-- At least one reviewer is required for a pull request to be approved
+ - Committers are required to agree to the Developer Certificate of Origin (DCO) for each and every commit by simply stating you have a legal right to make the contribution.
+- At least one reviewer is required for a pull request to be approved.
 - Automated CI/CD with vulnerability scanning and static analysis.
 - Automated tests for unit, integration, and end-to-end testing.
 - Automated code quality checks and linting.
 - Publicly documented contribution and code review guidelines ([CONTRIBUTING.md](https://github.com/kserve/kserve/blob/master/CONTRIBUTING.md)).
 - KServe's release process is mostly automated, with a focus on ensuring that all changes are thoroughly tested and validated before being released to users. The release process is documented in the [RELEASE.md](https://github.com/kserve/kserve/blob/master/release/RELEASE_PROCESS_v2.md):
   1. Check that all dependencies for the repository are up-to-date and aligned with release version
-  2. Generate release artifacts 
-  - Automated testing of all changes in the CI/CD pipeline.
-  3. Verify that all builds on the main branch are passing
+  2. Generate release artifacts and automated testing of all changes in the CI/CD pipeline.
+  3. Verify that all builds on the master branch are passing.
   4. Creating a release branch of the form release-X.Y.Z from the master
   5. Tagging and versioning of releases in the Git repository.
   6. Build and Publish images to the KServe Docker registry.
-  7. Publishing of release artifacts to the KServe GitHub repository.
+  7. Publishing of release artifacts to the KServe GitHub repository and publish Python SDK to PyPI.
   8. Generation of release notes and changelogs.
 
 ### Communication Channels
@@ -230,6 +228,6 @@ Upon receiving a vulnerability report, the KServe security team triages the issu
 
 - *Known Issues Over Time*: Issues and vulnerabilities are tracked in GitHub Issues and Security Advisories. No critical vulnerabilities are currently open.
 - *OpenSSF Best Practices*: KServe achieved the [passing level criteria](https://www.bestpractices.dev/en/projects/6643) and is in the process of working towards attaining a silver badge in Open Source Security Foundation (OpenSSF) best practices badge; the project is actively working to improve its security posture and practices.
-- *Case Studies*: KServe is used by organizations such as Bloomberg, Intuit, Red Hat, Zillow, and others for production ML model serving.
+- *Case Studies*: KServe is used by organizations such as Bloomberg, Red Hat, Nutanix, Cloudera, Intuit, Zillow and others for production ML model serving.
 - *Related Projects / Vendors*: Related projects include Kubeflow, Envoy AI Gateway, KEDA, Knative, Istio, Envoy Gateway.
-- *Competitive projects*: MLFlow, Seldon Core, Ray Serve, TensorFlow Serving, Triton Inference Server, and others. KServe differentiates by providing a Kubernetes-native, extensible platform with advanced deployment patterns and scaling capabilities.
+- *Competitive projects*: MLFlow, Seldon Core, Ray Serve, TensorFlow Serving, Triton Inference Server, and others. KServe differentiates by providing a Standard Kubernetes-native, extensible platform with advanced deployment patterns, model caching and scaling capabilities. It is also designed to be framework-agnostic, allowing users to define custom runtimes as well.
