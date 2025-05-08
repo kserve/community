@@ -278,7 +278,7 @@
       * *License compliance*: Initial work is underway to scan software for license implications to ensure transparency and legal compliance.
       * *Peer Review*: Commits and builds are validated through peer-reviewed pull request workflows, requiring approval before merge.
 
-## Day 1 \- Installation and Deployment Phase
+## Day 1 - Installation and Deployment Phase
 
 ### Project Installation and Configuration
 
