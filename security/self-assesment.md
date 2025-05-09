@@ -209,7 +209,7 @@ KServe does not currently claim compliance with specific security standards (e.g
 ### Ecosystem
 KServe is built on the existing Kubernetes framework, another open source project hosted by CNCF, Knative a serverless platform on kubernetes, KEDA a event drivn auto scaler on kubernetes and provides components to serve ML models on Kubernetes. For more information on Kubernetes see the documentation here https://kubernetes.io/docs/home/
 
-Other projects have been using KServe as ML serving platform, including [OpenShift](https://www.redhat.com/en/technologies/cloud-computing/openshift), a Red Hat product; [Kubeflow](https://github.com/kubeflow/kubeflow) a Kubernetes-native machine learning toolkit;
+Other projects have been using KServe as ML serving platform, including [Red Hat OpenShift AI](https://www.redhat.com/en/products/ai/openshift-ai), a platform for managing the lifecycle of predictive and generative AI models; [Kubeflow](https://github.com/kubeflow/kubeflow) a Kubernetes-native machine learning toolkit;
 
 
 ## Security Issue Resolution
