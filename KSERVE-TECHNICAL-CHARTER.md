@@ -31,7 +31,7 @@ g. Responsibilities: The TSC will be responsible for all aspects of oversight re
       iv. creating sub-committees or working groups to focus on cross-project technical issues and requirements; 
       v. appointing representatives to work with other open source or open standards communities; 
       vi. establishing community norms, workflows, issuing releases, and security issue reporting policies; 
-      vii. approving and implementing policies and processes for contributing (to be published in the CONTRIBUTING file) and coordinating with the series manager of the Project (as provided for in the Series Agreement, the “Series Manager”) to resolve matters or concerns that may arise as set forth in Section 7 of this Charter; 
+      vii. approving and implementing policies and processes for contributing (to be published in the CONTRIBUTING file) and coordinating with the Committers of the Project to resolve matters or concerns that may arise as set forth in Section 7 of this Charter; 
      viii. discussions, seeking consensus, and where necessary, voting on technical matters relating to the code base that affect multiple projects; and 
      ix. coordinating any marketing, events, or communications regarding the Project.
 
@@ -43,20 +43,20 @@ b. Quorum for TSC meetings requires at least fifty percent of all voting members
 
 c. Except as provided in Section 7.c. and 8.a, decisions by vote at a meeting require a majority vote of those in attendance, provided quorum is met. Decisions made by electronic vote without a meeting require a majority vote of all voting members of the TSC. 
 
-d. In the event a vote cannot be resolved by the TSC, any voting member of the TSC may refer the matter to the Series Manager for assistance in reaching a resolution.
+d. In the event a vote cannot be resolved by the TSC, any voting member of the TSC may refer the matter to the Committers for assistance in reaching a resolution.
 
 
 ## 4. Compliance with Policies 
 
 a. This Charter is subject to the Series Agreement for the Project and the Operating Agreement of LF Projects. Contributors will comply with the policies of LF Projects as may be adopted and amended by LF Projects, including, without limitation the policies listed at https://lfprojects.org/policies/. 
 
-b. The TSC may adopt a code of conduct (“CoC”) for the Project, which is subject to approval by the Series Manager. In the event that a Project-specific CoC has not been approved, the LF Projects Code of Conduct listed at https://lfprojects.org/policies will apply for all Collaborators in the Project. 
+b. The TSC may adopt a code of conduct (“CoC”) for the Project, which is subject to approval by the Committers. In the event that a Project-specific CoC has not been approved, the LF Projects Code of Conduct listed at https://lfprojects.org/policies will apply for all Collaborators in the Project. 
 
 c. When amending or adopting any policy applicable to the Project, LF Projects will publish such policy, as to be amended or adopted, on its web site at least 30 days prior to such policy taking effect; provided, however, that in the case of any amendment of the Trademark Policy or Terms of Use of LF Projects, any such amendment is effective upon publication on LF Project’s web site. 
 
 d. All Collaborators must allow open participation from any individual or organization meeting the requirements for contributing under this Charter and any policies adopted for all Collaborators by the TSC, regardless of competitive interests. Put another way, the Project community must not seek to exclude any participant based on any criteria, requirement, or reason other than those that are reasonable and applied on a non-discriminatory basis to all Collaborators in the Project community. 
 
-e. The Project will operate in a transparent, open, collaborative, and ethical manner at all times. The output of all Project discussions, proposals, timelines, decisions, and status should be made open and easily visible to all. Any potential violations of this requirement should be reported immediately to the Series Manager.
+e. The Project will operate in a transparent, open, collaborative, and ethical manner at all times. The output of all Project discussions, proposals, timelines, decisions, and status should be made open and easily visible to all. Any potential violations of this requirement should be reported immediately to the Committers.
 
 
 ## 5. Community Assets
