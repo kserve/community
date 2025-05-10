@@ -18,9 +18,9 @@ b. The current list of TSC members are listed in the [TECHNICAL-STEERING-COMMITT
 
 c. TSC projects generally will involve different roles as documented in the [membership.md](membership.md) file. The Maintainers of the Project (including reviewers, approvers, and leads) are listed in the [MAINTAINERS.md](MAINTAINERS.md) file within the [kserve/community repository](https://github.com/kserve/community). The Leads of the Project are specifically listed as "leads" in the same file. The TSC may choose an alternative approach for determining the voting members of the TSC, and any such alternative approach will be documented in the [membership.md](membership.md) file.
 
-d. Participation in the Project through becoming a Contributor and Maintainer is open to anyone so long as they abide by the terms of this Charter. 
+d. Participation in the Project through becoming a Maintainer is open to anyone so long as they abide by the terms of this Charter. 
 
-e. The TSC may (1) establish workflow procedures for the submission, approval, and closure/archiving of projects, (2) set requirements for the promotion of Contributors to Maintainer status, as applicable, and (3) amend, adjust, refine and/or eliminate the roles of Contributors, and Maintainers, and create new roles, and publicly document any TSC roles, as it sees fit. 
+e. The TSC may (1) establish workflow procedures for the submission, approval, and closure/archiving of projects, (2) set requirements for the promotion of member to Maintainer status, as applicable, and (3) amend, adjust, refine and/or eliminate the roles of members, and Maintainers, and create new roles, and publicly document any TSC roles, as it sees fit. 
 
 f. The TSC may elect a TSC Chair, who will preside over meetings of the TSC and will serve until their resignation or replacement by the TSC. The TSC Chair, or any other TSC member so designated by the TSC, will serve as the primary communication contact between the Project and the LF AI and Data Foundation of The Linux Foundation. 
 
