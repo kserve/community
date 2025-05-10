@@ -207,7 +207,7 @@ KServe does not currently claim compliance with specific security standards (e.g
     - KServe uses the CNCF Slack channel `kserve` for user-to-user, developer communication and user-specific announcements.
 
 ### Ecosystem
-KServe is built on the existing Kubernetes framework, another open source project hosted by CNCF, Knative a serverless platform on kubernetes, KEDA a event drivn auto scaler on kubernetes and provides components to serve ML models on Kubernetes. For more information on Kubernetes see the documentation here https://kubernetes.io/docs/home/
+KServe is built on the existing Kubernetes framework, another open source project hosted by CNCF, Knative a serverless platform on kubernetes, KEDA a event driven auto scaler on kubernetes and provides components to serve ML models on Kubernetes. For more information on Kubernetes see the documentation here https://kubernetes.io/docs/home/
 
 Other projects have been using KServe as ML serving platform, including [Red Hat OpenShift AI](https://www.redhat.com/en/products/ai/openshift-ai), a platform for managing the lifecycle of predictive and generative AI models; [Kubeflow](https://github.com/kubeflow/kubeflow) a Kubernetes-native machine learning toolkit;
 
@@ -228,6 +228,6 @@ Upon receiving a vulnerability report, the KServe security team triages the issu
 
 - *Known Issues Over Time*: Issues and vulnerabilities are tracked in GitHub Issues and Security Advisories. No critical vulnerabilities are currently open.
 - *OpenSSF Best Practices*: KServe achieved the [passing level criteria](https://www.bestpractices.dev/en/projects/6643) and is in the process of working towards attaining a silver badge in Open Source Security Foundation (OpenSSF) best practices badge; the project is actively working to improve its security posture and practices.
-- *Case Studies*: KServe is used by organizations such as Bloomberg, Red Hat, Nutanix, Cloudera, Intuit, Zillow and others for production ML model serving.
+- *Case Studies*: KServe is used by organizations such as Bloomberg, Red Hat, Nutanix, Cloudera, SAP, Intuit, Zillow and others for production ML model serving.
 - *Related Projects / Vendors*: Related projects include Kubeflow, Envoy AI Gateway, KEDA, Knative, Istio, Envoy Gateway.
 - *Competitive projects*: MLFlow, Seldon Core, Ray Serve, TensorFlow Serving, Triton Inference Server, and others. KServe differentiates by providing a Standard Kubernetes-native, extensible platform with advanced deployment patterns, model caching and scaling capabilities. It is also designed to be framework-agnostic, allowing users to define custom runtimes as well.
