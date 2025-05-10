@@ -155,7 +155,7 @@
 
 ### Security
 
-  * Please provide a link to the project’s cloud native [security self assessment](https://tag-security.cncf.io/community/assessments/).  
+  * Please provide a link to the project’s cloud native [security self assessment](https://tag-security.cncf.io/community/assessments/): [security/self-assessment.md](security/self-assessment.md)
   * Please review the [Cloud Native Security Tenets](https://github.com/cncf/tag-security/blob/main/security-whitepaper/secure-defaults-cloud-native-8.md) from TAG Security.  
     * How are you satisfying the tenets of cloud native security projects?  
       * KServe is built with security as a foundational concern. By leveraging Kubernetes-native constructs such as Custom Resource Definitions (CRDs), Role- Based Access Control (RBAC), and Network Policies, KServe integrates seamlessly into secure Kubernetes environments. It also inherits security from underlying components like Istio (for service mesh), Envoy Gateway and Knative (for serverless workloads), enforcing best practices from the start.
