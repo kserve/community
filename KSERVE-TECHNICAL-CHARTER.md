@@ -58,8 +58,13 @@ d. All Collaborators must allow open participation from any individual or organi
 
 e. The Project will operate in a transparent, open, collaborative, and ethical manner at all times. The output of all Project discussions, proposals, timelines, decisions, and status should be made open and easily visible to all. Any potential violations of this requirement should be reported immediately to the Series Manager.
 
+## 5. Vendor Neutrality
 
-## 5. Community Assets
+KServe operates as a vendor-neutral project, in line with the [CNCF Vendor Neutrality guidelines](https://contribute.cncf.io/maintainers/community/vendor-neutrality/). 
+
+The project's direction, decisions, and leadership are determined by open, transparent processes that involve contributors and maintainers from diverse organizations. No single vendor has exclusive control, and all vendors and individuals have an equal opportunity to contribute to and influence the project's development.
+
+## 6. Community Assets
 
 a. LF Projects will hold title to all trade or service marks used by the Project (“Project Trademarks”), whether based on common law or registered rights. Project Trademarks will be transferred and assigned to LF Projects to hold on behalf of the Project. Any use of any Project Trademarks by Collaborators in the Project will be in accordance with the license from LF Projects and inure to the benefit of LF Projects. 
 
@@ -68,13 +73,13 @@ b. The Project will, as permitted and in accordance with such license from LF Pr
 c. Under no circumstances will LF Projects be expected or required to undertake any action on behalf of the Project that is inconsistent with the tax-exempt status or purpose, as applicable, of the Joint Development Foundation or LF Projects, LLC.
 
 
-## 6. General Rules and Operations
+## 7. General Rules and Operations
 a. The Project will: 
      i. engage in the work of the Project in a professional manner consistent with maintaining a cohesive community, while also maintaining the goodwill and esteem of LF Projects, Joint Development Foundation and other partner organizations in the open source community; and 
     ii. respect the rights of all trademark owners, including any branding and trademark usage guidelines.
 
 
-## 7. Intellectual Property Policy
+## 8. Intellectual Property Policy
 
 a. Collaborators acknowledge that the copyright in all new contributions will be retained by the copyright holder as independent works of authorship and that no contributor or copyright holder will be required to assign copyrights to the Project. 
 
@@ -90,6 +95,6 @@ c.  The TSC may approve the use of an alternative license or licenses for inboun
 
 d. Contributed files should contain license information, such as SPDX short form identifiers, indicating the open source license or licenses pertaining to the file.
 
-## 8. Amendments
+## 9. Amendments
 
 a. This charter may be amended by a two-thirds vote of the entire TSC and is subject to approval by LF Projects.
