@@ -46,7 +46,7 @@
 
   * Explain the primary use case for the project. What additional use cases are supported by the project?
     - A declarative API to define Inference Services or graph for deploying models or pipeline.
-    - Multi-framework support out-of-the-box Tensorflow, Pytorch, XGBoost, ONNX, Hugging Face(LLMs).
+    - Multi-framework support out-of-the-box Tensorflow, Pytorch, XGBoost, ONNX, Hugging Face(LLMs), Scikit-Learn, LightGBM.
     - Autoscaling, including scale-to-zero and GPU support for resource utilization efficiency.
     - Seamless integration with K8s native tools like Istio, Knative, Prometheus.
 
