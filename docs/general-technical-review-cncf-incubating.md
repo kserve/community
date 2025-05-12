@@ -90,7 +90,7 @@
     - **Kubernetes Native**
       - Leverages Kubernetes custom resource definitions for model deployment.
       - Integrates natively with k8s pods, services and autoscaler.
-      - Enable declatative management and gitops-style deployment for ML models.
+      - Enable declarative management and gitops-style deployment for ML models.
     - **Unified Control Plane**
       - A single API for deploying model from different ML frameworks.
     - **Security and Multi-Tenancy**
