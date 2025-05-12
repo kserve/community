@@ -59,7 +59,7 @@
 
   * Explain which use cases have been identified as unsupported by the project.  
     - KServe primarily focus on Inference, not training or fine-tunings.
-    - KServe is desiged to be part of the larger MLOps ecosystem, model pipeline orchestration is expected to be handled by Kubelfow pipeline or other projects.
+    - KServe is designed to be part of the larger MLOps ecosystem, model pipeline orchestration is expected to be handled by Kubeflow Pipelines or other projects.
     - KServe is designed for running in k8s environment, non-k8s environment is not supported.
 
   * Describe the intended types of organizations who would benefit from adopting this project. (i.e. financial services, any software manufacturer, organizations providing platform engineering services)?  
