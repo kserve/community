@@ -111,7 +111,7 @@
 
   * Define any specific service dependencies the project relies on in the cluster.  
     - Kubernetes APIServer for creating/updating/deleteing KServe custom resources
-    - Cert Manager for managing KServe webhook certificates
+    - Cert Manager for managing KServe webhook certificates.
 
   * Describe how the project implements Identity and Access Management.  
     - KServe storage component use Kubernetes secrets to store credentials and support cloud identity and IAM for authentication.
