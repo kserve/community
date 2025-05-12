@@ -19,14 +19,14 @@
       - The roadmap start with the project's vision and strategic goals for scalable inference with predictive and generative inference on k8s. 
       - These are often definde by leads and core maintainers or in alignment with the feedback from the community.
     - **Gathering Feedbacks:**
-      - inputs are collected from various stakeolders including github issues, contributor proposals
+      - inputs are collected from various stakeholders including github issues, contributor proposals
       - Usage trends and telemetry
       - Ecosystem changes
     - **Defining the Scope:**
       - Mid-term: prioritize by immmediate impact and feasibility
       - Long-term: Focus on larger initiative or architecture changes
     - **Map to Contributions:**
-      - Issues are taggined with milestone labels and added to the release project boards
+      - Issues are tagged with milestone labels and added to the release project boards
       - Working group to align with the roadmap initiatives
     - **Map to Contributor Ladder:** 
       - Maintainer signal: Contributor involved in roadmap aligned work demonstrate sustained impacts
