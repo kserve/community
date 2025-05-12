@@ -110,7 +110,7 @@
     - KServe is primarily focusing on deploying in the production environment on k8s cluster using the officially released KServe helm chart.
 
   * Define any specific service dependencies the project relies on in the cluster.  
-    - Kubernetes APIServer for creating/updating/deleteing KServe custom resources
+    - Kubernetes APIServer for creating/updating/deleteing KServe custom resources.
     - Cert Manager for managing KServe webhook certificates.
 
   * Describe how the project implements Identity and Access Management.  
