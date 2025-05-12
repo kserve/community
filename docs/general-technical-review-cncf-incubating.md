@@ -52,7 +52,7 @@
 
     Additional features supported:
     - Canary rollout
-    - Model explanability
+    - Model explainability
     - Inference logging and tracing
     - Custom predictor, pre/post processing
     - Multi-model serving, ModelMesh
