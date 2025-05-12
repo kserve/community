@@ -1,6 +1,6 @@
 # KServe Technical Charter
 
-This Charter sets forth the responsibilities and procedures for technical contribution to, and oversight of, the KServe open source project, which has been established as KServe Project a Series of LF Projects, LLC (the “Project”). LF Projects, LLC (“LF Projects”) is a Delaware series limited liability company. All contributors (including committers, maintainers, and other technical positions) and other participants in the Project (collectively, “Collaborators”) must comply with the terms of this Charter.
+This Charter sets forth the responsibilities and procedures for technical contribution to, and oversight of, the KServe open source project, which has been established as KServe Project a Series of LF Projects, LLC (the “Project”). LF Projects, LLC (“LF Projects”) is a Delaware series limited liability company. All members documented in the [membership.md](membership.md) file and other participants in the Project (collectively, “Collaborators”) must comply with the terms of this Charter.
 
 
 ## 1. Mission and Scope of the Project 
@@ -14,13 +14,13 @@ b. The scope of the Project includes collaborative development under the Project
 
 a. The Technical Steering Committee (the “TSC”) will be responsible for all technical oversight of the open source Project. 
 
-b. The TSC voting members are initially the Project’s Committers. At the inception of the project, the Committers of the Project will be set forth within the [MAINTAINERS.md](MAINTAINERS.md) file within the [kserve/community repository](https://github.com/kserve/community). The TSC may choose an alternative approach for determining the voting members of the TSC, and any such alternative approach will be documented in the [membership.md](membership.md) file. The current list of TSC members are listed in the [TECHNICAL-STEERING-COMMITTEE.md](TECHNICAL-STEERING-COMMITTEE.md) file. Any meetings of the Technical Steering Committee are intended to be open to the public, and can be conducted electronically, via teleconference, or in person. 
+b. The current list of TSC members are listed in the [TECHNICAL-STEERING-COMMITTEE.md](TECHNICAL-STEERING-COMMITTEE.md) file. Any meetings of the Technical Steering Committee are intended to be open to the public, and can be conducted electronically, via teleconference, or in person. 
 
-c. TSC projects generally will involve different roles as documented in the [membership.md](membership.md) file. The TSC may adopt or modify roles so long as the roles are documented in that file.
+c. TSC projects generally will involve different roles as documented in the [membership.md](membership.md) file. The Maintainers of the Project (including reviewers, approvers, and leads) are listed in the [MAINTAINERS.md](MAINTAINERS.md) file within the [kserve/community repository](https://github.com/kserve/community). The Leads of the Project are specifically listed as "leads" in the same file. The TSC may choose an alternative approach for determining the voting members of the TSC, and any such alternative approach will be documented in the [membership.md](membership.md) file.
 
-d. Participation in the Project through becoming a Contributor and Committer is open to anyone so long as they abide by the terms of this Charter. 
+d. Participation in the Project through becoming a Maintainer is open to anyone so long as they abide by the terms of this Charter. 
 
-e. The TSC may (1) establish workflow procedures for the submission, approval, and closure/archiving of projects, (2) set requirements for the promotion of Contributors to Committer status, as applicable, and (3) amend, adjust, refine and/or eliminate the roles of Contributors, and Committers, and create new roles, and publicly document any TSC roles, as it sees fit. 
+e. The TSC may (1) establish workflow procedures for the submission, approval, and closure/archiving of projects, (2) set requirements for the promotion of member to Maintainer status, as applicable, and (3) amend, adjust, refine and/or eliminate the roles of members, and Maintainers, and create new roles, and publicly document any TSC roles, as it sees fit. 
 
 f. The TSC may elect a TSC Chair, who will preside over meetings of the TSC and will serve until their resignation or replacement by the TSC. The TSC Chair, or any other TSC member so designated by the TSC, will serve as the primary communication contact between the Project and the LF AI and Data Foundation of The Linux Foundation. 
 
@@ -31,7 +31,7 @@ g. Responsibilities: The TSC will be responsible for all aspects of oversight re
       iv. creating sub-committees or working groups to focus on cross-project technical issues and requirements; 
       v. appointing representatives to work with other open source or open standards communities; 
       vi. establishing community norms, workflows, issuing releases, and security issue reporting policies; 
-      vii. approving and implementing policies and processes for contributing (to be published in the CONTRIBUTING file) and coordinating with the series manager of the Project (as provided for in the Series Agreement, the “Series Manager”) to resolve matters or concerns that may arise as set forth in Section 7 of this Charter; 
+      vii. approving and implementing policies and processes for contributing (to be published in the CONTRIBUTING file) and coordinating with the Leads of the Project to resolve matters or concerns that may arise as set forth in Section 7 of this Charter; 
      viii. discussions, seeking consensus, and where necessary, voting on technical matters relating to the code base that affect multiple projects; and 
      ix. coordinating any marketing, events, or communications regarding the Project.
 
@@ -43,20 +43,20 @@ b. Quorum for TSC meetings requires at least fifty percent of all voting members
 
 c. Except as provided in Section 7.c. and 8.a, decisions by vote at a meeting require a majority vote of those in attendance, provided quorum is met. Decisions made by electronic vote without a meeting require a majority vote of all voting members of the TSC. 
 
-d. In the event a vote cannot be resolved by the TSC, any voting member of the TSC may refer the matter to the Series Manager for assistance in reaching a resolution.
+d. In the event a vote cannot be resolved by the TSC, any voting member of the TSC may refer the matter to the Leads for assistance in reaching a resolution.
 
 
 ## 4. Compliance with Policies 
 
 a. This Charter is subject to the Series Agreement for the Project and the Operating Agreement of LF Projects. Contributors will comply with the policies of LF Projects as may be adopted and amended by LF Projects, including, without limitation the policies listed at https://lfprojects.org/policies/. 
 
-b. The TSC may adopt a code of conduct (“CoC”) for the Project, which is subject to approval by the Series Manager. In the event that a Project-specific CoC has not been approved, the LF Projects Code of Conduct listed at https://lfprojects.org/policies will apply for all Collaborators in the Project. 
+b. The Project and all Collaborators should follow the CNCF Code of Conduct listed at [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). 
 
 c. When amending or adopting any policy applicable to the Project, LF Projects will publish such policy, as to be amended or adopted, on its web site at least 30 days prior to such policy taking effect; provided, however, that in the case of any amendment of the Trademark Policy or Terms of Use of LF Projects, any such amendment is effective upon publication on LF Project’s web site. 
 
 d. All Collaborators must allow open participation from any individual or organization meeting the requirements for contributing under this Charter and any policies adopted for all Collaborators by the TSC, regardless of competitive interests. Put another way, the Project community must not seek to exclude any participant based on any criteria, requirement, or reason other than those that are reasonable and applied on a non-discriminatory basis to all Collaborators in the Project community. 
 
-e. The Project will operate in a transparent, open, collaborative, and ethical manner at all times. The output of all Project discussions, proposals, timelines, decisions, and status should be made open and easily visible to all. Any potential violations of this requirement should be reported immediately to the Series Manager.
+e. The Project will operate in a transparent, open, collaborative, and ethical manner at all times. The output of all Project discussions, proposals, timelines, decisions, and status should be made open and easily visible to all. Any potential violations of this requirement should be reported immediately to the Leads.
 
 ## 5. Vendor Neutrality
 
