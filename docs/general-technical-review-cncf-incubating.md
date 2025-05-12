@@ -35,7 +35,7 @@
   * Describe the target persona or user(s) for the project?
     **ML Platform Engineer/MLOps Engineer**
     - Build scalable and reliable infrastrcuture for model deployment and inference.
-    - Enable data scientists to deploy models without manaing infrastructure.
+    - Enable data scientists to deploy models without managing infrastructure.
     - Ensure observability, security and autoscaling for inference services.
     - Ensure high availabity, scalability.
 
