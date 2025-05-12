@@ -126,7 +126,7 @@
   * Describe the project’s resource requirements, including CPU, Network and Memory.  
 
   * Describe the project’s storage requirements, including its use of ephemeral and/or persistent storage.  
-    - Ephermal storage is needed for models downloaded local to the Pod
+    - Ephermal storage is needed for models downloaded local to the Pod.
     - Persistence storage is used for loading models using PV/PVC
 
   * Please outline the project’s API Design:  
