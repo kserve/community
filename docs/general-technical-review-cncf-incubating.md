@@ -106,7 +106,7 @@
     KServe serverless mode depends on Knative for autoscaling(scale from zero) and revision based canary rollout. Both serverless and raw deployment mode depends on Ingress Gateway(Istio Ingress Gateway/Envoy Gateway) if user has external traffic getting into the kserve cluster. If service mesh is a requirement for secured setup, Istio is required for mTLS. 
  
     - Proof of Concept: user can run the quick installation script to install KServe in local environment.
-    - Development/Test: developper can install KServe on Kind or Minikube for quick developement iteration.
+    - Development/Test: developer can install KServe on Kind or Minikube for quick developement iteration.
     - KServe is primarily focusing on deploying in the production environment on k8s cluster using the officially released KServe helm chart.
 
   * Define any specific service dependencies the project relies on in the cluster.  
