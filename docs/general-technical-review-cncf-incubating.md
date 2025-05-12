@@ -99,7 +99,7 @@
     - **Extensibility**
       - Allow users to customize predictor, pre/post processing and explantation conforming to the custom runtime contract.
     - **Cloud and Platform Agnostic**
-      - Runs on any cloud provider or on-orem kubernetes cluster.
+      - Runs on any cloud provider or on-prem kubernetes cluster.
       - Avoids vendor lock-in while enabling hybrid or multi-cloud MLOps.
 
   * Outline or link to the project’s architecture requirements? Describe how they differ for Proof of Concept, Development, Test and Production environments, as applicable.  
