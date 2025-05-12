@@ -50,7 +50,7 @@ d. In the event a vote cannot be resolved by the TSC, any voting member of the T
 
 a. This Charter is subject to the Series Agreement for the Project and the Operating Agreement of LF Projects. Contributors will comply with the policies of LF Projects as may be adopted and amended by LF Projects, including, without limitation the policies listed at https://lfprojects.org/policies/. 
 
-b. The TSC may adopt a code of conduct (“CoC”) for the Project, which is subject to approval by the Leads. In the event that a Project-specific CoC has not been approved, the LF Projects Code of Conduct listed at https://lfprojects.org/policies will apply for all Collaborators in the Project. 
+b. The Project and all Collaborators should follow the CNCF Code of Conduct listed at [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). 
 
 c. When amending or adopting any policy applicable to the Project, LF Projects will publish such policy, as to be amended or adopted, on its web site at least 30 days prior to such policy taking effect; provided, however, that in the case of any amendment of the Trademark Policy or Terms of Use of LF Projects, any such amendment is effective upon publication on LF Project’s web site. 
 
