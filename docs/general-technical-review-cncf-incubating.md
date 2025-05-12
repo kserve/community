@@ -17,7 +17,7 @@
   
     - **Vision and Stategic alignment:**
       - The roadmap start with the project's vision and strategic goals for scalable inference with predictive and generative inference on k8s. 
-      - These are often definde by leads and core maintainers or in alignment with the feedback from the community.
+      - These are often defined by leads and core maintainers or in alignment with the feedback from the community.
     - **Gathering Feedbacks:**
       - inputs are collected from various stakeholders including github issues, contributor proposals
       - Usage trends and telemetry
