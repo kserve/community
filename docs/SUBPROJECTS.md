@@ -1,6 +1,6 @@
 # KServe Subprojects
 
-This document outlines the subprojects under the KServe umbrella, their leadership, contribution guidelines, and maturity status.
+This document outlines the subprojects under the KServe umbrella, their maintainers, contribution guidelines, and maturity status.
 
 ## Current Subprojects
 
@@ -11,9 +11,7 @@ This document outlines the subprojects under the KServe umbrella, their leadersh
 **Status**: Incubating
 **Repository**: [kserve/modelmesh-serving](https://github.com/kserve/modelmesh-serving)
 
-**Leadership**:
-- Project Lead: [TBD]
-- Maintainers: [List of maintainers from MAINTAINERS.md]
+**Maintainers**: [List of maintainers from MAINTAINERS.md]
 
 **Contribution Guidelines**:
 - Follow the main [KServe Contributing Guidelines](../CONTRIBUTING.md)
@@ -26,9 +24,7 @@ This document outlines the subprojects under the KServe umbrella, their leadersh
 **Status**: Incubating
 **Repository**: [kserve/open-inference-protocol](https://github.com/kserve/open-inference-protocol)
 
-**Leadership**:
-- Project Lead: [TBD]
-- Maintainers: [List of maintainers from MAINTAINERS.md]
+**Maintainers**: [List of maintainers from MAINTAINERS.md]
 
 **Contribution Guidelines**:
 - Follow the main [KServe Contributing Guidelines](../CONTRIBUTING.md)
