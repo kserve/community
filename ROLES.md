@@ -4,8 +4,8 @@ This document outlines the various roles within the KServe community and their a
 
 ## Core Organization Roles
 
-### KServe Owners (`kserve-owners`)
-- Owners of the KServe GitHub organization
+### KServe Leads (`kserve-leads`)
+- Leads of the KServe GitHub organization
 - Have administrative access to all repositories
 - Responsible for high-level organization management
 - Can manage organization settings and permissions
@@ -19,7 +19,7 @@ This document outlines the various roles within the KServe community and their a
 
 ## Core Project Roles
 
-### KServe Committers (`kserve-committers`)
+### KServe Approvers (`kserve-approvers`)
 - Have write access to repositories
 - Can approve and merge pull requests
 - Can triage and manage issues
@@ -35,8 +35,6 @@ This document outlines the various roles within the KServe community and their a
 
 ### KServe Contributors (`kserve-contributors`)
 - All community members who contribute to KServe
-- Can submit pull requests
-- Can report and comment on issues
 - Participate in discussions and development
 - Follow the [Code of Conduct](./CODE_OF_CONDUCT.md)
 
@@ -49,7 +47,7 @@ This document outlines the various roles within the KServe community and their a
 
 ## ModelMesh Subproject Roles
 
-### ModelMesh Maintainers (`modelmesh-maintainers`)
+### ModelMesh Approvers (`modelmesh-approvers`)
 - Responsible for maintaining the ModelMesh subproject
 - Have write access to ModelMesh repositories
 - Can approve and merge PRs
@@ -60,7 +58,7 @@ This document outlines the various roles within the KServe community and their a
 - All community members who contribute to ModelMesh
 - Can submit pull requests
 - Can report and comment on issues
-- Participate in ModelMesh development
+- Participate in ModelMesh developmen
 - Follow the [Code of Conduct](./CODE_OF_CONDUCT.md)
 
 ### ModelMesh Security Team (`modelmesh-security`)
@@ -74,10 +72,10 @@ This document outlines the various roles within the KServe community and their a
 ## Role Progression
 
 1. **Contributor** → **Reviewer**: Based on consistent quality contributions and demonstrated expertise
-2. **Reviewer** → **Committer**: Based on sustained contributions and ability to maintain project quality
-3. **Committer** → **Maintainer**: Based on leadership, technical expertise, and community involvement
+2. **Contributor** → **Security Team**: Based on sustained contributions to the CVE fixes and and security related improvements
+3. **Reviewer** → **Approver**: Based on sustained contributions and ability to maintain project quality
+4. **Approver** → **Maintainer**: Based on leadership, technical expertise, and community involvement
 
-TODO role progression to security teams?
 
 ## Role Requirements
 
