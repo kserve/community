@@ -58,7 +58,7 @@ This document outlines the various roles within the KServe community and their a
 - All community members who contribute to ModelMesh
 - Can submit pull requests
 - Can report and comment on issues
-- Participate in ModelMesh developmen
+- Participate in ModelMesh development
 - Follow the [Code of Conduct](./CODE_OF_CONDUCT.md)
 
 ### ModelMesh Security Team (`modelmesh-security`)
