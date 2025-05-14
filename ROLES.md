@@ -70,15 +70,6 @@ This document outlines the various roles within the KServe community and their a
 - Coordinate security releases
 - Handle security incident response
 
-## WebApp Roles 
-TODO - I am not sure what is the purpose of this group, please advise.
-
-### WebApp Maintainers (`webapp-maintainers`)
-- Responsible for maintaining the KServe web application
-- Have write access to webapp repositories
-- Can approve and merge PRs
-- Set technical direction for the web interface
-- Ensure webapp quality and user experience
 
 ## Role Progression
 
