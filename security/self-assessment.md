@@ -56,7 +56,13 @@ This document is a self-assessment of the security of the KServe project.
     - https://github.com/kserve/kserve/blob/master/python/pmmlserver/pyproject.toml
     - https://github.com/kserve/kserve/blob/master/python/xgbserver/pyproject.toml
 
-- SBOMs for all components are not yet available; automated generation of SBOMs is currently underway.
+- SBOMs for all components are now automatically generated as part of the CI/CD pipeline.
+
+- The SBOM for any released KServe container image can be accessed using the following commands:
+    - `docker sbom <image>`
+    - `docker buildx imagetools inspect <image> --format "{{ json .SBOM }}"`
+
+- Automated license compliance checks are integrated into the CI/CD process. All dependencies are scanned and validated for license compatibility as part of every pull request and release build, ensuring that only compliant dependencies are included in KServe releases.
 
 ## Overview
 

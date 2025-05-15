@@ -297,7 +297,7 @@
       * *Robust CI/CD Pipeline*: Automated unit, integration, and end-to-end tests are integrated into the CI/CD pipeline to catch bugs early in the pull request (PR) stage.
       * *Vulnerability Scanning*: Weekly scheduled image scanning using Snyk, Go source code scanning via gosec, and automated dependency vulnerability checks with Dependabot help identify and remediate known security issues.
       * *Static Code Analysis*: Code linting and static analysis tools are employed to enforce code quality and detect potential issues before they reach production.
-      * *Dependency Management*: The project uses lock files (e.g., pyproject.toml) for reproducibility and is progressing toward automated Software Bill of Materials (SBOM) generation.
+      * *Dependency Management*: The project uses lock files (e.g., pyproject.toml, go.mod) for reproducibility. Automated generation of Software Bill of Materials (SBOMs) is now integrated into the CI/CD pipeline for all container images and components, supporting supply chain security and transparency.
       * *Secure Defaults*: Default Kubernetes manifests and Helm charts are configured with security best practices, such as running containers as non-root and enforcing least privilege.
       * *Code Review Process*: All code changes require peer review and explicit approval before being merged into the main branch.
       * *Secure Image Builds*: Image builds are validated through CI/CD checks to ensure they are secure, reproducible, and consistent.
@@ -323,11 +323,11 @@
     * Describe how the project is following and implementing [secure software supply chain best practices](https://project.linuxfoundation.org/hubfs/CNCF\_SSCP\_v1.pdf) 
       * *Automated Testing and CI/CD Integration*: KServe integrates automated unit, integration, and end-to-end tests within its CI/CD pipeline. This ensures that any changes are validated early, reducing the risk of introducing vulnerabilities. 
       * *Vulnerability Scanning*: The project employs tools like integrates vulnerability scanning tools such as Snyk, dependabot and gosec to identify and address known security issues in dependencies.
-      * *Use of Lock Files and SBOM Generation*: KServe utilizes dependency lock files (e.g., pyproject.toml) to ensure reproducibility. Efforts are underway to automate the generation of Software Bill of Materials (SBOMs), enhancing transparency of the software components used.
+      * *Use of Lock Files and SBOM Generation*: KServe utilizes dependency lock files (e.g., pyproject.toml, go.mod) to ensure reproducibility. Automated generation of Software Bill of Materials (SBOMs) is now integrated into the CI/CD pipeline for all container images and components. This enhances transparency of software components and supports supply chain security.
       * *DCO Check*: Committers are required to sign and comply with the Developer Certificate of Origin (DCO) to affirm the legitimacy and authorship of their contributions.
       * *Branch Protection*: The project enforces branch protection rules to prevent unauthorized changes, enforce status checks, require pull request reviews, and control who can push to protected branches.
       * *Prevent Secrets in Source Code*: Proactively prevents committing secrets to the source code by using tools and GitHub workflows that detect sensitive data in PRs.
-      * *License compliance*: Initial work is underway to scan software for license implications to ensure transparency and legal compliance.
+      * *License compliance*: Automated license compliance checks are now integrated into the CI/CD pipeline. All dependencies are scanned and validated for license compatibility as part of every pull request and release build, ensuring transparency and legal compliance.
       * *Peer Review*: Commits and builds are validated through peer-reviewed pull request workflows, requiring approval before merge.
 
 ## Day 1 - Installation and Deployment Phase
