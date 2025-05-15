@@ -72,7 +72,7 @@ This document outlines the various roles within the KServe community and their a
 ## Role Progression
 
 1. **Contributor** → **Reviewer**: Based on consistent quality contributions and demonstrated expertise
-2. **Contributor** → **Security Team**: Based on sustained contributions to the CVE fixes and and security related improvements
+2. **Contributor** → **Security Team**: Based on sustained contributions to the CVE fixes and security related improvements
 3. **Reviewer** → **Approver**: Based on sustained contributions and ability to maintain project quality
 4. **Approver** → **Maintainer**: Based on leadership, technical expertise, and community involvement
 

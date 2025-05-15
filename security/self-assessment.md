@@ -56,7 +56,13 @@ This document is a self-assessment of the security of the KServe project.
     - https://github.com/kserve/kserve/blob/master/python/pmmlserver/pyproject.toml
     - https://github.com/kserve/kserve/blob/master/python/xgbserver/pyproject.toml
 
-- SBOMs for all components are not yet available; automated generation of SBOMs is currently underway.
+- SBOMs for all components are now automatically generated as part of the CI/CD pipeline.
+
+- The SBOM for any released KServe container image can be accessed using the following commands:
+    - `docker sbom <image>`
+    - `docker buildx imagetools inspect <image> --format "{{ json .SBOM }}"`
+
+- Automated license compliance checks are integrated into the CI/CD process. All dependencies are scanned and validated for license compatibility as part of every pull request and release build, ensuring that only compliant dependencies are included in KServe releases.
 
 ## Overview
 
@@ -207,7 +213,7 @@ KServe does not currently claim compliance with specific security standards (e.g
     - KServe uses the CNCF Slack channel `kserve` for user-to-user, developer communication and user-specific announcements.
 
 ### Ecosystem
-KServe is built on the existing Kubernetes framework, another open source project hosted by CNCF, Knative a serverless platform on kubernetes, KEDA a event driven auto scaler on kubernetes and provides components to serve ML models on Kubernetes. For more information on Kubernetes see the documentation here https://kubernetes.io/docs/home/
+KServe is built on the existing Kubernetes framework, another open source project hosted by CNCF, Knative a serverless platform on Kubernetes, KEDA a event driven auto scaler on Kubernetes and provides components to serve ML models on Kubernetes. For more information on Kubernetes see the documentation here https://kubernetes.io/docs/home/
 
 Other projects have been using KServe as ML serving platform, including [Red Hat OpenShift AI](https://www.redhat.com/en/products/ai/openshift-ai), a platform for managing the lifecycle of predictive and generative AI models; [Kubeflow](https://github.com/kubeflow/kubeflow) a Kubernetes-native machine learning toolkit;
 
