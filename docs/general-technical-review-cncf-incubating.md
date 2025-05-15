@@ -15,7 +15,7 @@
 
   * Describe the roadmap process, how scope is determined for mid to long term features, as well as how the roadmap maps back to current contributions and maintainer ladder?
   
-    - **Vision and Stategic alignment:**
+    - **Vision and Strategic alignment:**
       - The roadmap start with the project's vision and strategic goals for scalable inference with predictive and generative inference on k8s. 
       - These are often defined by leads and core maintainers or in alignment with the feedback from the community.
     - **Gathering Feedbacks:**
@@ -23,7 +23,7 @@
       - Usage trends and telemetry
       - Ecosystem changes
     - **Defining the Scope:**
-      - Mid-term: prioritize by immmediate impact and feasibility
+      - Mid-term: prioritize by immediate impact and feasibility
       - Long-term: Focus on larger initiative or architecture changes
     - **Map to Contributions:**
       - Issues are tagged with milestone labels and added to the release project boards
@@ -34,14 +34,14 @@
 
   * Describe the target persona or user(s) for the project?
     **ML Platform Engineer/MLOps Engineer**
-    - Build scalable and reliable infrastrcuture for model deployment and inference.
+    - Build scalable and reliable infrastructure for model deployment and inference.
     - Enable data scientists to deploy models without managing infrastructure.
     - Ensure observability, security and autoscaling for inference services.
-    - Ensure high availabity, scalability.
+    - Ensure high availability, scalability.
 
     **Data Scientist/ML Researcher**
     - Deploy models easily to get predictions.
-    - Run experiments and iterate quicky on model versions. 
+    - Run experiments and iterate quickly on model versions. 
     - Access model metrics or explanations for outputs.
 
   * Explain the primary use case for the project. What additional use cases are supported by the project?
@@ -65,9 +65,9 @@
   * Describe the intended types of organizations who would benefit from adopting this project. (i.e. financial services, any software manufacturer, organizations providing platform engineering services)?  
     - Enterprise with ML platform teams running on k8s.
     - Mid-size companies for scaling ML inference infrastructure.
-    - Organizatiosn requiring multi-framework and multi-tenant support.
+    - Organizations requiring multi-framework and multi-tenant support.
     - High regulated industries where need auditable and explainable ML outputs.
-    - Securiuty-conscious industries where need Istio, OPA to secure the model inference.
+    - Security-conscious industries where need Istio, OPA to secure the model inference.
 
   * Please describe any completed end user research and link to any reports.
     - KServe has wide range of adopters including cloud providers, end users in finance, real-estate industries.
@@ -78,7 +78,7 @@
       * The data scientist persona prefers a straightforward and easy way to deploy models without getting involved in the complexities of infrastructure. They can simply specify the model storage location in the InferenceService configuration, allowing the model to be loaded and deployed without needing to understand the underlying platform. 
       * ML Platform engineers and advanced users have the capability to customize the configuration in greater detail, enabling them to gather more insights about the infrastructure for optimizing workloads and enhancing hardware utilization.  
   * Describe the user experience (UX) and user interface (UI) of the project.  
-      * The datascientist perfers to a single click deloyment either by uploading a model artifact or pointing to a location where model is stored. 
+      * The datascientist prefers to a single click deployment either by uploading a model artifact or pointing to a location where model is stored. 
       * ML Platform engineer looks at different system and model metrics to monitor the infrastructure utilization and performance so as to provide the right SLA for the Inference. 
   * Describe how this project integrates with other projects in a production environment.
       * This project fits into the serving phase of the entire MLOps lifecycle. Datascientist trains the model using popular tools like Kubeflow Training Operator and registers the trained model artifact to a model registry. Then, the trained model is put into production at scale using KServe. Serving phase is monitored over time to detect the model drift which will trigger a finetuning workflow at regular intervals creating more model versions.  
@@ -94,23 +94,23 @@
     - **Unified Control Plane**
       - A single API for deploying model from different ML frameworks.
     - **Security and Multi-Tenancy**
-      - Integrates istio for securing traffic for model inference.
+      - Integrates Istio for securing traffic for model inference.
       - Use Kubernetes namespace for tenant isolation with configured resources limits and RBAC.
     - **Extensibility**
-      - Allow users to customize predictor, pre/post processing and explantation conforming to the custom runtime contract.
+      - Allow users to customize predictor, pre/post processing and explanation conforming to the custom runtime contract.
     - **Cloud and Platform Agnostic**
       - Runs on any cloud provider or on-prem kubernetes cluster.
       - Avoids vendor lock-in while enabling hybrid or multi-cloud MLOps.
 
   * Outline or link to the project’s architecture requirements? Describe how they differ for Proof of Concept, Development, Test and Production environments, as applicable.  
-    KServe serverless mode depends on Knative for autoscaling(scale from zero) and revision based canary rollout. Both serverless and raw deployment mode depends on Ingress Gateway(Istio Ingress Gateway/Envoy Gateway) if user has external traffic getting into the kserve cluster. If service mesh is a requirement for secured setup, Istio is required for mTLS. 
+    KServe serverless mode depends on Knative for autoscaling(scale from zero) and revision based canary rollout. Both serverless and raw deployment mode depends on Ingress Gateway(Istio Ingress Gateway/Envoy Gateway) if user has external traffic getting into the KServe cluster. If service mesh is a requirement for secured setup, Istio is required for mTLS. 
  
     - Proof of Concept: user can run the quick installation script to install KServe in local environment.
-    - Development/Test: developer can install KServe on Kind or Minikube for quick developement iteration.
+    - Development/Test: developer can install KServe on Kind or Minikube for quick development iteration.
     - KServe is primarily focusing on deploying in the production environment on k8s cluster using the officially released KServe helm chart.
 
   * Define any specific service dependencies the project relies on in the cluster.  
-    - Kubernetes APIServer for creating/updating/deleteing KServe custom resources.
+    - Kubernetes APIServer for creating/updating/deleting KServe custom resources.
     - Cert Manager for managing KServe webhook certificates.
 
   * Describe how the project implements Identity and Access Management.  
@@ -126,8 +126,8 @@
   * Describe the project’s resource requirements, including CPU, Network and Memory.  
 
   * Describe the project’s storage requirements, including its use of ephemeral and/or persistent storage.  
-    - Ephermal storage is needed for models downloaded local to the Pod.
-    - Persistence storage is used for loading models using PV/PVC.
+    - Ephemeral storage is needed for models downloaded local to the Pod.
+    - Persistent storage is used for loading models using PV/PVC.
 
   * Please outline the project’s API Design:  
     * Describe the project’s API topology and conventions  
@@ -159,7 +159,7 @@
   * Please review the [Cloud Native Security Tenets](https://github.com/cncf/tag-security/blob/main/security-whitepaper/secure-defaults-cloud-native-8.md) from TAG Security.  
     * How are you satisfying the tenets of cloud native security projects?  
       * KServe is built with security as a foundational concern. By leveraging Kubernetes-native constructs such as Custom Resource Definitions (CRDs), Role- Based Access Control (RBAC), and Network Policies, KServe integrates seamlessly into secure Kubernetes environments. It also inherits security from underlying components like Istio (for service mesh), Envoy Gateway and Knative (for serverless workloads), enforcing best practices from the start.
-      * Default configurations follow Kubernetes security best practices (e.g., non-root containers, minimal privileges,  disable privillege escalation). Documentation (ConfigMap) provides clear guidance, but some advanced security configurations may require Kubernetes expertise. Secure defaults are enabled by default, but users can override them if needed.
+      * Default configurations follow Kubernetes security best practices (e.g., non-root containers, minimal privileges, disable privilege escalation). Documentation (ConfigMap) provides clear guidance, but some advanced security configurations may require Kubernetes expertise. Secure defaults are enabled by default, but users can override them if needed.
       * Insecure options (e.g., running privileged containers) require explicit configuration.
       * Users can migrate workloads to more secure configurations without breaking changes, leveraging Kubernetes’ declarative model.
       * Exception handling from provided defaults is possible via modifying the resource definition or through configurations which are exposed in the configmap.
@@ -167,7 +167,7 @@
       * KServe uses containers as the fundamental unit of deployment. Each model is served through an individual containerized inference service, allowing users to package models along with their dependencies in a consistent, portable way. Whether it’s a custom PyTorch model or a pre-trained Hugging Face transformer or any other framework, KServe runs it in an isolated container, making deployments repeatable and manageable.
       * KServe is designed to run natively on Kubernetes and uses it for orchestration. It dynamically manages the lifecycle of model-serving pods, including provisioning, scaling, upgrading, and termination. It leverages Kubernetes resources like Deployments, Services, and Custom Resource Definitions (CRDs) to integrate deeply into the orchestration layer.
       * KServe adopts a microservices architecture by separating concerns such as prediction, explanation, pre-processing, and post-processing into distinct containerized components. Each function can be independently implemented and plugged into the KServe inference graph, promoting modularity and reusability across different models and workflows.
-      * KServe uses Knative for autoscaling In Serverless, including scale-to-zero, where inactive services scale down completely to save resources. In raw deployment modescaling is performed using kubernetes HPA or KEDA. It supports horizontal scaling based on traffic and custom metrics, and GPU autoscaling is also available for high-performance use cases. This elasticity ensures efficient resource use and responsiveness to demand.
+      * KServe uses Knative for autoscaling In Serverless, including scale-to-zero, where inactive services scale down completely to save resources. In raw deployment model scaling is performed using Kubernetes HPA or KEDA. It supports horizontal scaling based on traffic and custom metrics, and GPU autoscaling is also available for high-performance use cases. This elasticity ensures efficient resource use and responsiveness to demand.
       * KServe services interact via HTTP/gRPC APIs and follow standard inference protocols. This decouples model serving from model training or storage concerns. Users can mix and match model types, runtimes, or even infrastructure (e.g., GPU vs CPU) without tightly coupling components, supporting flexible and scalable deployments.
     * How do you recommend users alter security defaults in order to "loosen" the security of the project? Please link to any documentation the project has written concerning these use cases.  
       * KServe uses Istio’s mTLS by default to secure service-to-service communication. This is documented in [KServe website](https://kserve.github.io/website/master/admin/serverless/servicemesh/#turn-on-strict-mtls-and-authorization-policy). To loosen this security setting, switch Istio PeerAuthentication to PERMISSIVE mode. This allows both encrypted (mTLS) and unencrypted (plaintext) traffic. For example,
@@ -199,7 +199,7 @@
               runAsUser: 0
               allowPrivilegeEscalation: true
       ```
-      * By default, KServe sets default resource limits for containers to ensure fair resource allocation. This can be overridden by setting resource limits and requests in the Custom Resource Yaml. For example,
+      * By default, KServe sets default resource limits for containers to ensure fair resource allocation. This can be overridden by setting resource limits and requests in the Custom Resource yaml. For example,
       ```yaml
       apiVersion: serving.kserve.io/v1beta1
       kind: InferenceService
@@ -219,7 +219,7 @@
                 cpu: 1
                 memory: 1Gi
       ```
-      * KServe disables automatic default service account injection model server pods as usually they don't require privilleges to communicate with kubernetes API server or other kubernetes related resources. But users can provide their own serviceaccount using the InferenceService Yaml.
+      * KServe disables automatic default service account injection model server pods as usually they don't require privileges to communicate with Kubernetes API server or other Kubernetes related resources. But users can provide their own ServiceAccount using the InferenceService yaml.
      ```yaml
       apiVersion: serving.kserve.io/v1beta1
       kind: InferenceService
@@ -259,7 +259,7 @@
     * Explain the least minimal privileges required by the project and reasons for additional privileges.  
       * Since KServe is installed cluster-wide (not namespace-scoped), it will need broader RBAC permissions to manage resources across namespaces. 
       * The KServe controller requires permission to watch and reconcile KServe-specific custom resources like InferenceService and to manage associated Kubernetes objects like Deployments and Services. These permissions require cluster-wide privileges.
-      * Model serving pods run as non-root by default, without requiring host access or privileged escalation. The default service account injection is disabled by default as these pods do not need to communicate with the kubernetes API Server. The service account can be explicitly specified if they require access to ConfigMaps or Secrets only when required.
+      * Model serving pods run as non-root by default, without requiring host access or privileged escalation. The default service account injection is disabled by default as these pods do not need to communicate with the Kubernetes API Server. The service account can be explicitly specified if they require access to ConfigMaps or Secrets only when required.
       * Default KServe controller containers run as non-root users, minimizing the risk of privilege escalation.
       * If users deploy custom containers or runtimes, those may require additional permissions (e.g., access to GPUs, external storage, or specific system capabilities).
       * Integrations with external systems (like cloud storage, databases, or monitoring tools) may require additional secrets or service account permissions.
@@ -325,5 +325,5 @@
       * All API changes are backward compatible which are announced in release notes and in the official website.
     
   * Explain how the project permits utilization of alpha and beta capabilities as part of a rollout.
-      * We provide conversion webhooks when crd versions are updated. 
+      * We provide conversion webhooks when CRD versions are updated. 
 
