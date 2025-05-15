@@ -118,28 +118,80 @@
     - KServe data plane are secured by Istio for mTLS and authenticated/authorized using security policies.
 
   * Describe how the project has addressed sovereignty.  
+    - KServe is designed to be cloud and platform agnostic, running on any Kubernetes cluster (on-premises or any cloud provider). It avoids vendor lock-in by using open standards and Kubernetes-native APIs. All data and model artifacts remain within the adopter's control, and integrations with external storage or identity providers are optional and configurable by the user.
 
   * Describe any compliance requirements addressed by the project.  
+    - KServe supports compliance with industry standards by leveraging Kubernetes RBAC, network policies, and integration with service mesh (Istio) for secure, auditable traffic. It enables multi-tenancy, namespace isolation, and supports secure storage of credentials. KServe is used in regulated industries and can be configured to meet requirements such as data residency, access control, and auditability, but specific compliance certifications are the responsibility of the adopter's deployment.
 
   * Describe the project’s High Availability requirements.  
-    - KServe high availability is achieved by 
+    
+    - Control Plane HA: KServe controller can be deployed with multiple replicas across different nodes and availability zones. It uses leader election to ensure only one instance is active at a time, while others are on standby. This ensures that if one instance fails, another can take over without downtime.
+    - Data Plane HA: KServe supports multiple replicas of model serving pods, allowing for load balancing and failover. It can be configured with Kubernetes HPA, KEDA or Knative autoscaler to scale based on traffic. For production, it is recommended to use a highly available storage backend for models (e.g., S3, GCS) to ensure data availability.
+    - KServe leverages Kubernetes' built-in mechanisms for pod replication, self-healing, and rolling updates. For production, it is recommended to run at least 2-3 replicas of the controller across different nodes and use highly available storage backends for model storage. Integration with Knative and Ingress network solutions like Istio, Envoy Gateway further supports traffic routing and failover.
+
   * Describe the project’s resource requirements, including CPU, Network and Memory.  
+    - The KServe controller requires modest CPU and memory (typically 0.5-1 CPU and 1-2Gi memory per replica). Model serving pods' requirements depend on the model size and framework, with defaults set to 1 CPU and 2Gi memory per pod, but can be tuned per InferenceService. Network requirements depend on inference request volume and model size. For high-throughput or GPU workloads, resource requests and limits should be adjusted accordingly.
 
   * Describe the project’s storage requirements, including its use of ephemeral and/or persistent storage.  
     - Ephemeral storage is needed for models downloaded local to the Pod.
     - Persistent storage is used for loading models using PV/PVC.
+    - KServe control plane does not require persistent storage, except for optional model caching using PV/PVC.
 
   * Please outline the project’s API Design:  
-    * Describe the project’s API topology and conventions  
-    * Describe the project defaults  
+    * Describe the project’s API topology and conventions
+      *Control Plane*:
+        - KServe exposes a Kubernetes-native declarative API using Custom Resource Definitions (CRDs), primarily the `InferenceService` resource, to manage model serving workloads. 
+        - The API follows Kubernetes conventions for resource specification, status, and metadata, supporting standard CRUD operations via `kubectl` and the Kubernetes API server.
+        - The `InferenceService` CRD allows users to define predictors, transformers, and explainers in a single resource, supporting multi-framework and multi-model serving.
+        - KServe supports versioned APIs (e.g., `serving.kserve.io/v1beta1`) and uses OpenAPI schema validation for resource definitions.
+      *Data Plane*:
+        - Inference requests are served via HTTP/gRPC endpoints, following standard inference protocols (e.g., [OpenAI API](https://platform.openai.com/docs/api-reference/introduction), [V2 Open Inference Protocol](https://kserve.github.io/website/master/modelserving/data_plane/v2_protocol/), [KServe V1 protocol](https://kserve.github.io/website/master/modelserving/data_plane/v1_protocol/)), with RESTful conventions for completion, chat, predict, explain and metadata endpoints.
+        - The API is designed for extensibility, allowing custom runtimes and components to be integrated via well-defined interfaces.
+      - For more details, see the [KServe API Reference](https://kserve.github.io/website/master/reference/api/).
+    * Describe the project defaults
       - Deployment mode defaults to serverless
       - Default InferenceService container resource limit with 1 CPU and 2Gi memory
       - Defaults to use Knative Autoscaler  
-    * Outline any additional configurations from default to make reasonable use of the project  
-    * Describe any new or changed API types and calls \- including to cloud providers \- that will result from this project being enabled and used  
-    * Describe compatibility of any new or changed APIs with API servers, including the Kubernetes API server   
+    * Outline any additional configurations from default to make reasonable use of the project
+      - For production, it is recommended to set resource requests and limits based on the model size and expected traffic.
+      - Enable Istio or Envoy Gateway for ingress traffic management and security.
+      - Set up monitoring and alerting using Prometheus and Grafana for observability.
+      - Enable GPU support by specifying node selectors and resource limits for GPU-enabled nodes if serving large or complex models.
+      - Set up autoscaling configurations for each InferenceService to handle variable workloads and ensure high availability.
+      - Integrate with external object storage (e.g., S3, GCS, Azure Blob) for model storage by providing appropriate storage URIs and Kubernetes secrets for credentials.
+      - Use Istio or another service mesh for secure, authenticated, and observable traffic management, including mTLS and traffic splitting for canary rollouts.
+      - Enable inference logging, tracing, and Prometheus metrics for monitoring and observability.
+      - Customize pre/post-processing and explainers by specifying transformer and explainer containers in the InferenceService spec.
+      - Adjust configmaps (e.g., `inferenceservice-config`) for advanced settings such as default runtime images, storage options, and ingress behavior.
+      - For production, deploy multiple controller replicas.
+      - See the [KServe documentation](https://kserve.github.io/website/master/admin/) for more configuration examples and best practices.
+    * Describe any new or changed API types and calls - including to cloud providers - that will result from this project being enabled and used  
+      - KServe introduces the `InferenceService` Custom Resource Definition (CRD) as the primary API type for managing model serving workloads on Kubernetes. This is a new resource type not present in vanilla Kubernetes.
+      - Additional CRDs include `ServingRuntime` and `ClusterServingRuntime`, which are used to specify and manage custom model runtimes for serving different frameworks or custom containers.
+      - The `InferenceGraph` CRD is available for defining complex model chaining and inference pipelines, enabling advanced use cases such as ensemble models or multi-step inference workflows.
+      - The `LocalModelCache` CRD allows users to specify models that should be cached locally on nodes for performance optimization and reduced download times.
+      - Enabling KServe does not change existing Kubernetes APIs, but adds these new CRDs and related endpoints for managing inference services and model runtimes.
+      - For cloud provider integration, KServe supports referencing external model storage (e.g., S3, GCS, Azure Blob) via storage URIs in the `InferenceService` spec. This requires users to provide credentials as Kubernetes secrets, but does not introduce new API types to the cloud provider itself.
+      - KServe exposes HTTP/gRPC endpoints for inference, explain, and metadata operations, following standard inference protocols (V1, V2, OpenAI API, etc.).
+    * Describe compatibility of any new or changed APIs with API servers, including the Kubernetes API server  
+      - All KServe CRDs (InferenceService, ServingRuntime, ClusterServingRuntime, InferenceGraph, LocalModelCache) are implemented using Kubernetes Custom Resource Definitions and are fully compatible with the Kubernetes API server.
+      - These CRDs follow Kubernetes API conventions for resource creation, update, deletion, and status reporting, and can be managed using standard Kubernetes tools (kubectl, client libraries, etc.).
+      - KServe CRDs are versioned and validated using OpenAPI schemas, ensuring compatibility with Kubernetes admission controllers and API server validation mechanisms.
+      - KServe is tested and supported on upstream Kubernetes distributions and is designed to work with standard Kubernetes RBAC, admission webhooks, and API aggregation layers.
+      - No changes are made to existing Kubernetes APIs; KServe only extends the API surface by adding new resource types.
     * Describe versioning of any new or changed APIs, including how breaking changes are handled  
-  * Describe the project’s release processes, including major, minor and patch releases.
+      - KServe CRDs (e.g., InferenceService, ServingRuntime, ClusterServingRuntime, InferenceGraph, LocalModelCache) use Kubernetes API versioning conventions, such as `v1alpha1`, `v1beta1`, and `v1` in their API group (e.g., `serving.kserve.io/v1beta1`).
+      - New features and changes are introduced in alpha or beta versions before being promoted to stable (`v1`).
+      - Conversion webhooks are provided to support seamless migration between CRD versions when breaking changes are introduced.
+      - Deprecated fields and versions are announced in release notes and documentation, and are supported for a deprecation period before removal.
+      - Backward compatibility is maintained for stable APIs, and breaking changes are only introduced in new major or beta versions, following Kubernetes best practices.
+      - Users are encouraged to migrate to newer versions using provided migration documentation.
+  * Describe the project’s release processes, including major, minor and patch releases.  
+      - KServe follows a structured release process for major, minor, and patch releases, as documented in the [RELEASE_PROCESS_v2.md](https://github.com/kserve/kserve/blob/master/release/RELEASE_PROCESS_v2.md).
+      - Each release includes versioning, release notes, and changelogs to communicate new features, bug fixes, and deprecations.
+      - Release candidates are published for community testing before final releases.
+      - The process includes automated CI/CD checks, validation, and artifact publishing to container registries and GitHub artifacts.
+      - Deprecated features and APIs are maintained for a deprecation period before removal.
 
 ### Installation
 
@@ -311,8 +363,7 @@
 ### Rollout, Upgrade and Rollback Planning
 
   * How does the project intend to provide and maintain compatibility with infrastructure and orchestration management tools like Kubernetes and with what frequency? 
-  * KServe publishes the list of dependencies with their supported versions for every release. The supported versions are evaluated and upgraded on every official release. 
-
+      * KServe publishes the list of dependencies with their supported versions for every release. The supported versions are evaluated and upgraded on every official release. 
 
   * Describe how the project handles rollback procedures.   
       * Upgrade of the Inference service will not be complete unless newer version is active. If newer revision is not active within a configurable amount of time, revision is marked as Failed and traffic will still remain on the old version. The traffic will switch from old to new revision only when the newer version is active.
@@ -325,5 +376,5 @@
       * All API changes are backward compatible which are announced in release notes and in the official website.
     
   * Explain how the project permits utilization of alpha and beta capabilities as part of a rollout.
-      * We provide conversion webhooks when CRD versions are updated. 
+      * We provide conversion webhooks when CRD versions are updated.
 
