@@ -13,6 +13,7 @@ same process and are given the same level of review.
 - [Setting up to contribute to KServe](#setting-up-to-contribute-to-kserve)
 - [Pull requests](#pull-requests)
 - [Issues](#issues)
+  - [Reporting Security Vulnerabilities](#reporting-security-vulnerabilities)
 - [Add your organization to adopters](#add-your-organization-to-adopters)
 - [Project membership](#project-membership)
 
@@ -137,6 +138,35 @@ When reporting a bug please include the following key pieces of information:
 - The exact, minimal, steps needed to reproduce the issue.
   Submitting a 5 line script will get a much faster response from the team
   than one that's hundreds of lines long.
+
+## Reporting Security Vulnerabilities
+
+If you discover a security vulnerability within KServe, please follow these steps:
+
+1. **DO NOT** create a public GitHub issue for the vulnerability.
+
+2. **DO NOT** disclose the vulnerability publicly until it has been addressed.
+
+3. Report the vulnerability by emailing the KServe security team at security@kserve.io with the following information:
+   - Description of the vulnerability
+   - Steps to reproduce the issue
+   - Potential impact of the vulnerability
+   - Any suggested fixes or mitigations (if available)
+   - Your contact information
+
+4. The security team will:
+   - Acknowledge receipt of your report within 48 hours
+   - Investigate the vulnerability
+   - Keep you informed of the progress
+   - Work with you to validate the fix
+   - Coordinate the public disclosure
+
+5. Once the vulnerability is fixed:
+   - A security advisory will be published on GitHub
+   - The fix will be included in the next release
+   - You will be credited for the discovery (unless you prefer to remain anonymous)
+
+For more information about our security practices, please visit our [Security Policy](https://github.com/kserve/kserve/security/policy).
 
 ## Add your organization to adopters
 
