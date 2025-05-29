@@ -57,10 +57,81 @@ This document is a self-assessment of the security of the KServe project.
     - https://github.com/kserve/kserve/blob/master/python/xgbserver/pyproject.toml
 
 - SBOMs for all components are now automatically generated as part of the CI/CD pipeline.
+  - The SBOMs can be found at the `DockerHub` in the released container images:
+    - docker.io/kserve/custom-model
+    - docker.io/kserve/modelmesh-controller
+    - docker.io/kserve/modelmesh
+    - docker.io/kserve/modelmesh-runtime-adapter
+    - docker.io/kserve/modelmesh-minio-examples
+    - docker.io/kserve/modelmesh-minio-dev-examples
+    - docker.io/kserve/models-web-app
+    - docker.io/kserve/torchserve-image-transformer
+    - docker.io/kserve/storage-initializer
+    - docker.io/kserve/tf2openapi
+    - docker.io/kserve/xgbserver
+    - docker.io/kserve/sklearnserver
+    - docker.io/kserve/lgbserver
+    - docker.io/kserve/paddleserver
+    - docker.io/kserve/art-explainer
+    - docker.io/kserve/pmmlserver
+    - docker.io/kserve/kserve-controller
+    - docker.io/kserve/alibi-explainer
+    - docker.io/kserve/agent
+    - docker.io/kserve/aix-explainer
+    - docker.io/kserve/pytorchserver
+    - docker.io/kserve/rest-proxy
+    - docker.io/kserve/kserve-migration
+    - docker.io/kserve/mnist-transformer
+    - docker.io/kserve/torchserve-kfs
+    - docker.io/kserve/grpc-image-transformer
+    - docker.io/kserve/image-transformer
+    - docker.io/kserve/driver-transformer
+    - docker.io/kserve/testing-worker
+    - docker.io/kserve/router
+    - docker.io/kserve/modelmesh-controller-develop
+    - docker.io/kserve/qpext
+    - docker.io/kserve/custom-image-transformer-grpc
+    - docker.io/kserve/custom-model-grpc
+    - docker.io/kserve/vllmserver
+    - docker.io/kserve/huggingfaceserver
+    - docker.io/kserve/kserve-localmodel-controller
+    - docker.io/kserve/kserve-localmodelnode-agent
 
 - The SBOM for any released KServe container image can be accessed using the following commands:
     - `docker sbom <image>`
     - `docker buildx imagetools inspect <image> --format "{{ json .SBOM }}"`
+    - If using `podman`, it can be retrieved with the following commands:
+      - `podman manifest inspect <image>`
+        - find the attestation sha for the desired architecture, it is reference by the `"application/vnd.oci.image.manifest.v1+json"` which has the platform archtecture and os fields filled, the one with these fields blank are the attestation manigest and the annotation `"vnd.docker.reference.digest"` points to the disired architecture., Example:
+        ```json
+        "manifests": [
+          {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "size": 2749,
+            "digest": "sha256:4e82750e1d3db411acceea65b1d4a56caa61203275416d53a35d38a6ff14fe1a",
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+         },
+          ...
+         {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "size": 561,
+            "digest": "sha256:85200092eb54134e7ade50846bfc3ba6edfe08657cfb9ca4e56bb4e0ac508cf8",
+            "platform": {
+                "architecture": "unknown",
+                "os": "unknown"
+            },
+            "annotations": {
+                "vnd.docker.reference.digest": "sha256:4e82750e1d3db411acceea65b1d4a56caa61203275416d53a35d38a6ff14fe1a",
+                "vnd.docker.reference.type": "attestation-manifest"
+            }
+          },
+
+        ```
+      - `skopeo copy docker://docker.io/kserve/<image>@<attestation-manifest-sha> dir:./<image>-manifest
+      
 
 - Automated license compliance checks are integrated into the CI/CD process. All dependencies are scanned and validated for license compatibility as part of every pull request and release build, ensuring that only compliant dependencies are included in KServe releases.
 
