@@ -102,7 +102,7 @@ This document is a self-assessment of the security of the KServe project.
     - `docker buildx imagetools inspect <image> --format "{{ json .SBOM }}"`
     - If using `podman`, it can be retrieved with the following commands:
       - `podman manifest inspect <image>`
-        - find the attestation sha for the desired architecture, it is reference by the `"application/vnd.oci.image.manifest.v1+json"` which has the platform archtecture and os fields filled, the one with these fields blank are the attestation manigest and the annotation `"vnd.docker.reference.digest"` points to the disired architecture., Example:
+        - find the attestation sha for the desired architecture, it is referenced by the `"application/vnd.oci.image.manifest.v1+json"` which has the platform architecture and os fields filled, the one with these fields blank are the attestation manifest and the annotation `"vnd.docker.reference.digest"` points to the desired architecture., Example:
         ```json
         "manifests": [
           {
