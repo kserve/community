@@ -147,7 +147,7 @@ If you discover a security vulnerability within KServe, please follow these step
 
 2. **DO NOT** disclose the vulnerability publicly until it has been addressed.
 
-3. Report the vulnerability by emailing the KServe security team at security@kserve.io with the following information:
+3. Report the vulnerability by emailing the KServe security team at kserve-security@lists.lfaidata.foundation with the following information:
    - Description of the vulnerability
    - Steps to reproduce the issue
    - Potential impact of the vulnerability
