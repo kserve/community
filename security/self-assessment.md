@@ -67,7 +67,6 @@ This document is a self-assessment of the security of the KServe project.
     - docker.io/kserve/pmmlserver
     - docker.io/kserve/kserve-controller
     - docker.io/kserve/agent
-    - docker.io/kserve/art-explainer
     - docker.io/kserve/rest-proxy
     - docker.io/kserve/image-transformer
     - docker.io/kserve/router
@@ -238,8 +237,8 @@ KServe does not currently claim compliance with specific security standards (e.g
  - Committers are required to agree to the Developer Certificate of Origin (DCO) for each and every commit by simply stating you have a legal right to make the contribution.
 - At least one reviewer is required for a pull request to be approved.
 - Automated CI/CD with vulnerability scanning and static analysis.
-  - There are scheduled vulnerability scams ad code and container level:
-    - [Container Scan](https://github.com/kserve/kserve/blob/master/.github/workflows/scheduled-image-scan.yml): Executed twice a week.
+  - There are scheduled vulnerability scans at code and container image level:
+    - [Container Image Scan](https://github.com/kserve/kserve/blob/master/.github/workflows/scheduled-image-scan.yml): Executed twice a week.
     - [Code Scan](https://github.com/kserve/kserve/blob/master/.github/workflows/scheduled-go-security-scan.yml): Executed every Sunday. 
 - Automated tests for unit, integration, and end-to-end testing.
 - Automated code quality checks and linting.
