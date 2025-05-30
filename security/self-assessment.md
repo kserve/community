@@ -58,41 +58,21 @@ This document is a self-assessment of the security of the KServe project.
 
 - SBOMs for all components are now automatically generated as part of the CI/CD pipeline.
   - The SBOMs can be found at the `DockerHub` in the released container images:
-    - docker.io/kserve/custom-model
-    - docker.io/kserve/modelmesh-controller
-    - docker.io/kserve/modelmesh
-    - docker.io/kserve/modelmesh-runtime-adapter
-    - docker.io/kserve/modelmesh-minio-examples
-    - docker.io/kserve/modelmesh-minio-dev-examples
-    - docker.io/kserve/models-web-app
-    - docker.io/kserve/torchserve-image-transformer
     - docker.io/kserve/storage-initializer
     - docker.io/kserve/tf2openapi
     - docker.io/kserve/xgbserver
     - docker.io/kserve/sklearnserver
     - docker.io/kserve/lgbserver
     - docker.io/kserve/paddleserver
-    - docker.io/kserve/art-explainer
     - docker.io/kserve/pmmlserver
     - docker.io/kserve/kserve-controller
-    - docker.io/kserve/alibi-explainer
     - docker.io/kserve/agent
-    - docker.io/kserve/aix-explainer
-    - docker.io/kserve/pytorchserver
     - docker.io/kserve/rest-proxy
-    - docker.io/kserve/kserve-migration
-    - docker.io/kserve/mnist-transformer
-    - docker.io/kserve/torchserve-kfs
-    - docker.io/kserve/grpc-image-transformer
     - docker.io/kserve/image-transformer
-    - docker.io/kserve/driver-transformer
-    - docker.io/kserve/testing-worker
     - docker.io/kserve/router
-    - docker.io/kserve/modelmesh-controller-develop
     - docker.io/kserve/qpext
     - docker.io/kserve/custom-image-transformer-grpc
     - docker.io/kserve/custom-model-grpc
-    - docker.io/kserve/vllmserver
     - docker.io/kserve/huggingfaceserver
     - docker.io/kserve/kserve-localmodel-controller
     - docker.io/kserve/kserve-localmodelnode-agent
@@ -130,7 +110,7 @@ This document is a self-assessment of the security of the KServe project.
           },
 
         ```
-      - `skopeo copy docker://docker.io/kserve/<image>@<attestation-manifest-sha> dir:./<image>-manifest
+      - `skopeo copy docker://docker.io/kserve/<image>@<attestation-manifest-sha> dir:./<image>-manifest`
       
 
 - Automated license compliance checks are integrated into the CI/CD process. All dependencies are scanned and validated for license compatibility as part of every pull request and release build, ensuring that only compliant dependencies are included in KServe releases.
@@ -257,6 +237,9 @@ KServe does not currently claim compliance with specific security standards (e.g
  - Committers are required to agree to the Developer Certificate of Origin (DCO) for each and every commit by simply stating you have a legal right to make the contribution.
 - At least one reviewer is required for a pull request to be approved.
 - Automated CI/CD with vulnerability scanning and static analysis.
+  - There are scheduled vulnerability scans at code and container image level:
+    - [Container Image Scan](https://github.com/kserve/kserve/blob/master/.github/workflows/scheduled-image-scan.yml): Executed twice a week.
+    - [Code Scan](https://github.com/kserve/kserve/blob/master/.github/workflows/scheduled-go-security-scan.yml): Executed every Sunday. 
 - Automated tests for unit, integration, and end-to-end testing.
 - Automated code quality checks and linting.
 - Publicly documented contribution and code review guidelines ([CONTRIBUTING.md](https://github.com/kserve/kserve/blob/master/CONTRIBUTING.md)).
