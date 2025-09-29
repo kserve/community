@@ -12,7 +12,7 @@ This is the starting point for becoming a contributor - improving code, improvin
 
 ## Introduction
 
-KServe is a highly scalable and standards based Model Inference Platform on Kubernetes for Trusted AI. It is hosted as [incubation project](https://lfaidata.foundation/projects/kserve/) in [LFAI & Data Foundation](https://lfaidata.foundation/).
+KServe is a [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/) incubating project.
 
 Visit [kserve.github.io](https://kserve.github.io/website) for in-depth information about using KServe.
 
