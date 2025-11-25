@@ -13,6 +13,7 @@ Please see [membership.md](membership.md) that defines the various responsibilit
 | Sivanantham Chinnaiyan | [sivanantha321](https://github.com/sivanantha321)     | Approver - KServe    | Ideas2IT    |
 | Jooho Lee              | [Jooho](https://github.com/Jooho)                     | Approver - KServe    | Red Hat     |
 | Andrews Arokiam        | [andyi2it](https://github.com/andyi2it)               | Reviewer - KServe    | Ideas2IT    |
+| Cory Johannsen         | [cjohannsen-cloudera](https://github.com/cjohannsen-cloudera) | Reviewer - KServe | Cloudera |
 | Curtis Maddalozzo      | [cmaddalozzo](https://github.com/cmaddalozzo)         | Reviewer - KServe    | Bloomberg   |
 | Datta Nimmaturi        | [Datta0](https://github.com/Datta0)                   | Reviewer - KServe    | Nutanix     |
 | Gavrish Prabhu         | [gavrissh](https://github.com/gavrissh)               | Reviewer - KServe    | Nutanix     |
