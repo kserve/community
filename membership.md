@@ -8,7 +8,7 @@ Responsibilities for roles are scoped to these subprojects.
 |----------|:----------------------------------------------|:------------------------------------------------------------------------------------------|:---------------------------|
 | member   | active contributor in the community           | sponsored by 2 approvers or leads. multiple contributions to the project                  | KServe GitHub org member   |
 | reviewer | review contributions from other members       | sponsored by a lead. history of review and authorship in a subproject                     | OWNERS file reviewer entry |
-| approver | approve accepting contributions               | sponsored by a lead. highly experienced and active reviewer + contributor to a subproject | OWNERS file approver entry |
+| approver/committer | approve accepting contributions               | sponsored by a lead. highly experienced and active reviewer + contributor to a subproject | OWNERS file approver entry |
 | lead     | set direction and priorities for a subproject | demonstrated responsibility and excellent technical judgement for the subproject          | OWNERS file owner entry    |
 
 Please see [MAINTAINERS.md](MAINTAINERS.md) for a list of existing members and their roles.
@@ -142,10 +142,11 @@ an `OWNERS` file.
 
 
 
-#### Approver
+#### Approver/Committer
 
 Code approvers are able to both review and approve code contributions as well as 
-help subproject leads triage issues and with project management.
+help subproject leads triage issues and with project management. Note that committer
+is equivalent to committer and is a member of the [Technical Steering Committee (TSC)](TECHNICAL-STEERING-COMMITTEE.md).
 
 While code review is focused on code quality and correctness, approval is focused on
 holistic acceptance of a contribution including: backwards / forwards
