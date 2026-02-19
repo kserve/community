@@ -9,7 +9,7 @@ Responsibilities for roles are scoped to these subprojects.
 | member   | active contributor in the community           | sponsored by 2 approvers or leads. multiple contributions to the project                  | KServe GitHub org member   |
 | reviewer | review contributions from other members       | sponsored by a lead. history of review and authorship in a subproject                     | OWNERS file reviewer entry |
 | approver | approve accepting contributions               | sponsored by a lead. highly experienced and active reviewer + contributor to a subproject | OWNERS file approver entry |
-| lead     | set direction and priorities for a subproject | demonstrated responsibility and excellent technical judgement for the subproject          | OWNERS file owner entry    |
+| project lead     | set direction and priorities for a subproject | demonstrated responsibility and excellent technical judgement for the subproject          | OWNERS file owner entry    |
 
 Please see [MAINTAINERS.md](MAINTAINERS.md) for a list of existing members and their roles.
 
@@ -120,7 +120,7 @@ an `OWNERS` file.
   definition of substantial subject to the lead's discretion (e.g.
   refactors, enhancements rather than grammar correction or one-line pulls).
 - Knowledgeable about the codebase
-- Sponsored by a subproject lead
+- Sponsored by a project lead
   - With no objections from other leads
   - Done through PR to update the OWNERS file
 - May either self-nominate or nominated by an approver in the subproject
@@ -145,7 +145,7 @@ an `OWNERS` file.
 #### Approver
 
 Code approvers are able to both review and approve code contributions as well as 
-help subproject leads triage issues and with project management.
+help project leads triage issues and with project management.
 
 While code review is focused on code quality and correctness, approval is focused on
 holistic acceptance of a contribution including: backwards / forwards
@@ -168,7 +168,7 @@ in an `OWNERS` file.
   refactors, enhancements rather than grammar correction or one-line pulls).
 - Exhibiting sound technical judgment through PR contributions
 - Exhibiting sound technical judgment through PR reviews
-- Sponsored by a subproject lead
+- Sponsored by a project lead
   - With no objections from other leads
   - Done through PR to update the OWNERS file
 
@@ -189,11 +189,11 @@ in an `OWNERS` file.
 
 
 
-#### Lead
+#### Project Lead
 
-Subproject Leads are the technical authority for a subproject in the KServe
+Project Leads are the technical authority for a subproject in the KServe
 project.  They *MUST* have demonstrated both good judgement and responsibility
-towards the health of that subproject.  Subproject leads *MUST* set technical
+towards the health of that subproject.  Project leads *MUST* set technical
 direction and make or approve design decisions for their subproject - either
 directly or through delegation of these responsibilities.
 
@@ -201,7 +201,7 @@ directly or through delegation of these responsibilities.
 
 ##### Requirements
 
-The process for becoming a subproject lead should be defined in the SIG
+The process for becoming a Project lead should be defined in the SIG
 charter of the SIG owning the subproject.  Unlike the roles outlined above, the
 Leads of a subproject are typically limited to a relatively small group of
 decision makers and updated as fits the needs of the subproject.
@@ -230,7 +230,7 @@ The following apply to the subproject for which one would be an lead.
   - Adequate test coverage to confidently release
   - Tests are passing reliably (i.e. not flaky) and are fixed when they fail
 - Ensure a healthy process for discussion and decision making is in place.
-- Work with other subproject leads to maintain the project's overall health and success holistically
+- Work with other project leads to maintain the project's overall health and success holistically
 - Promote and foster the community (e.g. hosting meetings, workshops, partner engagements, collaborations)
 
 
@@ -275,7 +275,7 @@ A change in membership role may be approved by consensus of the KServe Project l
 
 The membership meeting should be attended by project leads and by unscoped approvers (i.e. those who have access to merge _any_ PR in their subproject). Scoped approvers (i.e. those whose access is limited by the project's OWNERS file to a particular "scope" in the repo) do not attend.
 
-### Appointment of Subproject Leads
+### Appointment of Project Leads
 
 Leads serve a unique and critical role in the direction and organization of each subproject. Each subproject will generally have two co-leads, who share responsibility. There is no fixed term for leads and they often serve until they retire or, in rare cases, are replaced by [voting](GOVERNANCE.md). Leads are encouraged to give other qualified members of the community an opportunity to serve. Former leads are welcome to nominate themselves again in the future.
 
@@ -292,7 +292,7 @@ If you have any feedback about the current nominee(s), please comment on the iss
 
 This announcement should be posted at least two weeks before any vote is held to actually appoint a new lead.
 
-Key factors in the selection of new subproject leads are:
+Key factors in the selection of new project leads are:
 - History of participation and leadership in the KServe project and user communities.
 - Demonstrated high standards for personal and professional conduct.
 - Leads should reflect and represent the diversity of the KServe Community 

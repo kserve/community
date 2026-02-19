@@ -30,7 +30,7 @@ Promotion is requested for the following sub-project(s).
 
 ### Lead Sponsor(s)
 
-Promotion to Reviewer requires sponsorship from at least one sub-project Lead.
+Promotion to Reviewer requires sponsorship from at least one project Lead.
 
 - @<sponsor-1>
 

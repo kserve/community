@@ -4,7 +4,7 @@ This document outlines the various roles within the KServe community and their a
 
 ## Core Organization Roles
 
-### KServe Leads (`kserve-leads`)
+### KServe Project Leads (`kserve-leads`)
 - Leads of the KServe GitHub organization
 - Have administrative access to all repositories
 - Responsible for high-level organization management
