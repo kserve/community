@@ -145,8 +145,8 @@ an `OWNERS` file.
 #### Approver/Committer
 
 Code approvers are able to both review and approve code contributions as well as 
-help subproject leads triage issues and with project management. Note that committer
-is equivalent to committer and is a member of the [Technical Steering Committee (TSC)](TECHNICAL-STEERING-COMMITTEE.md).
+help subproject leads triage issues and with project management. Note that "committer"
+is equivalent to "approver" and can be used interchangeably. An approver is a member of the [Technical Steering Committee (TSC)](TECHNICAL-STEERING-COMMITTEE.md).
 
 While code review is focused on code quality and correctness, approval is focused on
 holistic acceptance of a contribution including: backwards / forwards
