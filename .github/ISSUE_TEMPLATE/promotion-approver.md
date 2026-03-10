@@ -38,12 +38,18 @@ Promotion is requested for the following sub-project(s).
    - < link to PR 9 >
    - < link to PR 10 >
 
-### Lead Sponsor(s)
+### Sponsors
+
+<!--
+Please only add the names after they explicitly +1 on the issue.
+-->
+
+#### Lead Sponsor(s)
 
 Promotion to Approver requires sponsorship from at least one project Lead.
 
 - @<sponsor-1>
 
-### Other Sponsors
+#### Other Sponsors
 
 - @<sponsor-1>
