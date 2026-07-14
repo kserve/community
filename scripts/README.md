@@ -1,8 +1,8 @@
 # KServe Community Scripts
 
-## Promotion Check
+## Governance Check
 
-`promotion-check.py` validates open promotion requests in
+`governance-check.py` validates open promotion requests in
 [kserve/community](https://github.com/kserve/community) against the
 [governance criteria](../membership.md) by querying PR activity from
 [kserve/kserve](https://github.com/kserve/kserve).
@@ -34,19 +34,19 @@
 export GITHUB_API_TOKEN=$(gh auth token)
 
 # Validate all open promotion requests
-make promotion-check
+make governance-check
 
 # Check a specific user's eligibility
-make promotion-check-user USER=someuser TARGET=approver
-make promotion-check-user USER=someuser TARGET=reviewer
+make governance-check-user USER=someuser TARGET=approver
+make governance-check-user USER=someuser TARGET=reviewer
 ```
 
 ### Makefile targets
 
 | Target | Description |
 |--------|-------------|
-| `make promotion-check` | Validate open promotion requests, output as markdown |
-| `make promotion-check-user USER=x TARGET=y` | Check a specific user's promotion eligibility |
+| `make governance-check` | Validate open promotion requests and detect inactive maintainers |
+| `make governance-check-user USER=x TARGET=y` | Check a specific user's promotion eligibility |
 | `make list-contributors` | List top contributors by total PR participation |
 | `make list-pr-reviewers` | List top PR reviewers |
 | `make list-pr-authors` | List top PR authors |
@@ -54,7 +54,7 @@ make promotion-check-user USER=someuser TARGET=reviewer
 ### CLI options
 
 ```
-python3 scripts/python/promotion-check.py [OPTIONS]
+python3 scripts/python/governance-check.py [OPTIONS]
 
 Options:
   --repo REPO              GitHub repo to query for PR activity
@@ -77,19 +77,19 @@ Options:
 export GITHUB_API_TOKEN=$(gh auth token)
 
 # Validate all open promotion requests
-python3 scripts/python/promotion-check.py --output markdown
+python3 scripts/python/governance-check.py --output markdown
 
 # Check your own eligibility before opening a promotion request
-python3 scripts/python/promotion-check.py --user myname --target reviewer
+python3 scripts/python/governance-check.py --user myname --target reviewer
 
 # JSON output for scripting
-python3 scripts/python/promotion-check.py --output json | jq '.promotion_validations'
+python3 scripts/python/governance-check.py --output json | jq '.promotion_validations'
 
 # Custom lookback for reviewer candidates
-python3 scripts/python/promotion-check.py --reviewer-days 180
+python3 scripts/python/governance-check.py --reviewer-days 180
 
 # Check a different repo
-python3 scripts/python/promotion-check.py --repo kserve/modelmesh-serving
+python3 scripts/python/governance-check.py --repo kserve/modelmesh-serving
 ```
 
 ### How reviews are counted
