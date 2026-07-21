@@ -116,9 +116,12 @@ an `OWNERS` file.
 
 - Member for at least 3 months
 - Active community participation (meetings, slack, stack overflow) and interact with issues for at least 1 month.
-- Reviewer for or author of at least 5 substantial PRs to the codebase, with the
-  definition of substantial subject to the lead's discretion (e.g.
-  refactors, enhancements rather than grammar correction or one-line pulls).
+- Author of at least 3 substantial PRs (merged) to the codebase
+- Primary reviewer for at least 5 substantial PRs from other contributors
+  - Bot commands (`/lgtm`, `/approve`, `/retest`, etc.) or comments shorter than 10 characters do not count as reviews
+  - Self-reviews (reviews on PRs authored by the reviewer themselves) do not count
+- The definition of substantial is subject to the lead's discretion
+  (e.g. refactors, enhancements rather than grammar correction or one-line pulls).
 - Knowledgeable about the codebase
 - Sponsored by a project lead
   - With no objections from other leads
@@ -163,9 +166,13 @@ The following apply to the part of codebase for which one would be an approver
 in an `OWNERS` file.
 
 - Reviewer for at least 3 months
-- Reviewer for or author of at least 10 substantial PRs to the codebase, with the
-  definition of substantial subject to the lead's discretion (e.g.
-  refactors, enhancements rather than grammar correction or one-line pulls).
+- Author of at least 5 substantial PRs (merged) to the codebase
+- Primary reviewer for at least 10 substantial PRs from other contributors
+  - Reviews must span across different PRs (multiple comments on the same PR count as one review)
+  - Bot commands (`/lgtm`, `/approve`, `/retest`, etc.) or comments shorter than 10 characters do not count as reviews
+  - Self-reviews (reviews on PRs authored by the reviewer themselves) do not count
+- The definition of substantial is subject to the lead's discretion
+  (e.g. refactors, enhancements rather than grammar correction or one-line pulls).
 - Exhibiting sound technical judgment through PR contributions
 - Exhibiting sound technical judgment through PR reviews
 - Sponsored by a project lead
@@ -268,6 +275,15 @@ After an extended period away from the project with no activity,
 removed members would need to re-familiarize themselves with the current state
 before being able to contribute effectively.
 
+### Inactive maintainers
+
+Reviewers and approvers with no meaningful contributions (PRs authored, PRs reviewed, or issue
+triage) for 12 months may be discussed for demotion or emeritus transition at the quarterly
+membership meeting by the project leads and approvers.
+
+Emeritus maintainers are welcome to rejoin at any time. Returning maintainers who were previously
+in good standing may be fast-tracked through the promotion process at the discretion of the
+project leads.
 
 ### Change in membership roles
 
