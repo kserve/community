@@ -147,12 +147,14 @@ PR_QUERY = """
             author { login }
             state
             body
+            submittedAt
           }
         }
         comments(first: 50) {
           nodes {
             author { login }
             body
+            createdAt
           }
         }
       }
@@ -319,7 +321,11 @@ def build_activity(pr_nodes):
             activity[pr_author]["authored"].append({
                 **pr_info, "merged_at": pr["mergedAt"][:10]})
 
-        reviewers_on_this_pr = set()
+        # Track the most recent qualifying review/comment date per user, so
+        # window filtering reflects when the review actually happened rather
+        # than when the PR was opened. Falls back to PR creation date if the
+        # timestamp is missing.
+        reviewer_dates = {}
         pr_created = pr["createdAt"][:10]
 
         for review in pr.get("reviews", {}).get("nodes", []):
@@ -330,7 +336,9 @@ def build_activity(pr_nodes):
                 continue
             if is_formal_review(review.get("state", ""), pr_author, reviewer) or \
                is_valid_review(review.get("body", ""), pr_author, reviewer):
-                reviewers_on_this_pr.add(reviewer)
+                when = (review.get("submittedAt") or pr_created)[:10]
+                if when > reviewer_dates.get(reviewer, ""):
+                    reviewer_dates[reviewer] = when
 
         for comment in pr.get("comments", {}).get("nodes", []):
             if not comment or not comment.get("author"):
@@ -339,10 +347,12 @@ def build_activity(pr_nodes):
             if commenter in IGNORED_USERS or commenter == pr_author:
                 continue
             if is_valid_review(comment.get("body", ""), pr_author, commenter):
-                reviewers_on_this_pr.add(commenter)
+                when = (comment.get("createdAt") or pr_created)[:10]
+                if when > reviewer_dates.get(commenter, ""):
+                    reviewer_dates[commenter] = when
 
-        for reviewer in reviewers_on_this_pr:
-            activity[reviewer]["reviewed"].append({**pr_info, "date": pr_created})
+        for reviewer, when in reviewer_dates.items():
+            activity[reviewer]["reviewed"].append({**pr_info, "date": when})
 
     return activity
 
@@ -380,9 +390,14 @@ def deduplicate_reviewed(reviewed):
 
 def compute_tenure_activity(user_data, reviewer_since_str):
     since = datetime.strptime(reviewer_since_str, "%Y-%m-%d").date()
+    today = date.today()
     authored = filter_by_date(user_data["authored"], "merged_at", since)
     reviewed = deduplicate_reviewed(filter_by_date(user_data["reviewed"], "date", since))
-    months = max(1, (date.today() - since).days // 30)
+    months = max(1, (today - since).days // 30)
+    # Calendar months the tenure spans, inclusive of both endpoints. Used as the
+    # denominator for months_with_activity (which also counts calendar months),
+    # so the fraction stays consistent instead of e.g. 4/3.
+    calendar_months = (today.year - since.year) * 12 + (today.month - since.month) + 1
 
     active_months = set()
     for r in reviewed:
@@ -397,7 +412,7 @@ def compute_tenure_activity(user_data, reviewer_since_str):
         "reviewed_during_tenure": len(reviewed),
         "avg_reviews_per_month": round(len(reviewed) / months, 1),
         "months_with_activity": len(active_months),
-        "months_total": months,
+        "months_total": calendar_months,
     }
 
 

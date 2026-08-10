@@ -94,12 +94,22 @@ python3 scripts/python/governance-check.py --repo kserve/modelmesh-serving
 
 ### How reviews are counted
 
-A PR counts as "reviewed" if the user either:
+A PR counts as "reviewed" if the user, on a PR they did not author, either:
 
 - Submitted a review with COMMENTED or CHANGES_REQUESTED state, or
-- Left a general comment that passes the noise filter (not a bot command, 10+ characters, not on their own PR)
+- Wrote substantive text in a review body or a general comment — text that
+  passes the noise filter (not a bot command, 10+ characters)
 
-Multiple comments on the same PR count as one review.
+Substance is judged by content, not by which button was clicked. A bare
+approval (an empty APPROVED review or `/lgtm`) is a rubber stamp and does
+**not** count. But an approval submitted together with real written feedback
+does count — the feedback itself is the review.
+
+Each review is attributed to the date it was submitted (the review/comment
+timestamp), not the date the PR was opened. A review left recently on an older
+PR still counts toward the recent measurement window.
+
+Multiple reviews or comments on the same PR count as one review.
 
 ## List Contributors
 
