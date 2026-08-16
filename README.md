@@ -37,8 +37,8 @@ KServe is an open source project that is driven by the participation of users an
 
 ### Become a contributor
 1. Familiar youself with the [KServe contribution guideline](https://github.com/kserve/community/blob/main/CONTRIBUTING.md#contributing-a-feature).
-2. The [KServe developer guideline](https://kserve.github.io/website/master/developer/developer), [doc contributor guideline](https://github.com/kserve/website/blob/main/docs/help/contributor/mkdocs-contributor-guide.md) is the starting point for contributors to make code or doc contributions.
-3. To dig deeper, check out the [KServe user guide](https://kserve.github.io/website/master/modelserving/control_plane)
+2. The [KServe developer guideline](https://kserve.github.io/website/docs/developer-guide), [doc contributor guideline](https://github.com/kserve/website/blob/main/docs/developer-guide/contribution.md) is the starting point for contributors to make code or doc contributions.
+3. To dig deeper, check out the [KServe user guide](https://kserve.github.io/website/docs/concepts/architecture/control-plane)
 and read some [design docs](./CONTRIBUTING.md#design-documents), see past design docs [here](./design_docs.md).
 4. Participate in the KServe working group.
 

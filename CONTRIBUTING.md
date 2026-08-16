@@ -69,7 +69,7 @@ following steps:
 
 - Submit PRs to [kserve/website](https://github.com/kserve/website) with
   documentation for your feature, including usage examples when possible.
-  See [here](https://github.com/kserve/website/blob/main/docs/help/contributor/mkdocs-contributor-guide.md) to learn how to write docs for kserve.io.
+  See [here](https://github.com/kserve/website/blob/main/docs/developer-guide/contribution.md) to learn how to write docs for kserve.io.
 
 Note, that we prefer "bite-sized" PRs instead of "giant monster" PRs. It is
 preferable if you can introduce large features in smaller reviewable changes
@@ -86,7 +86,7 @@ discussions, so the choice is up to you.
 ## Setting up to contribute to KServe
 
 Check out this [README](https://github.com/kserve/kserve/blob/master/README.md)
-to learn about the KServe source base and setting up your [development environment](https://kserve.github.io/website/master/developer/developer/).
+to learn about the KServe source base and setting up your [development environment](https://kserve.github.io/website/docs/developer-guide).
 
 ## Pull requests
 
@@ -171,12 +171,12 @@ For more information about our security practices, please visit our [Security Po
 ## Add your organization to adopters
 
 If your organization uses KServe, you can list it on our
-[adopters page](https://kserve.github.io/website/master/community/adopters).
+[adopters page](https://kserve.github.io/website/docs/community/adopters).
 We have categories for *providers* (who offer hosted or managed KServe services
 to their customers), *end users* (who use and consume KServe) and *integrations*
 (commercial or open source products that work with KServe).
 
-Please add your organization's logo, preferably in SVG format [here](https://github.com/kserve/website/tree/main/docs/images).
+Please add your organization's logo, preferably in SVG format [here](https://github.com/kserve/website/tree/main/static/img/adopters).
 
 ## Project membership
 
