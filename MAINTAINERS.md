@@ -7,7 +7,7 @@ Please see [membership.md](membership.md) that defines the various responsibilit
 | Maintainer             | GitHub ID                                             | Project Roles        | Affiliation |
 |------------------------|-------------------------------------------------------|----------------------|-------------|
 | Dan Sun                | [yuzisun](https://github.com/yuzisun)                 | Project Lead - KServe        | Bloomberg   |
-| Yuan Tang              | [terrytangyuan](https://github.com/terrytangyuan)     | Project Lead - KServe        | Red Hat     |
+| Yuan Tang              | [terrytangyuan](https://github.com/terrytangyuan)     | Project Lead - KServe        | TensorScale     |
 | Lize Cai               | [lizzzcai](https://github.com/lizzzcai)               | Approver - KServe    | SAP         |
 | Sivanantham Chinnaiyan | [sivanantha321](https://github.com/sivanantha321)     | Approver - KServe    | Ideas2IT    |
 | Jooho Lee              | [Jooho](https://github.com/Jooho)                     | Approver - KServe    | Red Hat     |
